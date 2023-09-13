@@ -1,4 +1,2 @@
 # Skripte
-Skripte
-
-dsadsadasdad
+meine ersten Funktionen und Skripte
