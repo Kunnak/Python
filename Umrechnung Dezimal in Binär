@@ -1,0 +1,19 @@
+# Umrechner Dezimal in Binär
+
+def umrechnung_dez_zu_bin(dezimalzahl):
+    global binanzeige
+    if dezimalzahl == 0:
+        return "0"
+
+    while dezimalzahl > 0:
+        sinn = dezimalzahl % 2
+        binzahl = binstellen.append(str(sinn))
+        dezimalzahl //= 2
+
+        binanzeige = ''.join(reversed(binstellen))
+    print(binanzeige)
+
+dezimalzahl = input("Dezimalzahl :  ")
+dezimalzahl = int(dezimalzahl)
+binstellen = []
+umrechnung_dez_zu_bin(dezimalzahl)
