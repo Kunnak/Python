@@ -5,3 +5,4 @@ meine ersten Funktionen und Skripte
 - Zählen der Vokale in einem String
 - Überprüfen ob die Eingabe gleich viele 'A' wie 'E' beinhaltet
 - Taschenrechner
+- Rabattberechnung
