@@ -6,3 +6,4 @@ meine ersten Funktionen und Skripte
 - Überprüfen ob die Eingabe gleich viele 'A' wie 'E' beinhaltet
 - Taschenrechner
 - Rabattberechnung
+- Selektion von Integern aus einer Liste, bestehend aus Strings und Integern
