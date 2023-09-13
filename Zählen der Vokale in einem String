@@ -1,0 +1,14 @@
+def count_vokale(wort):
+
+    wort = wort.lower()
+    vokale = ['a', 'e', 'i', 'o', 'u']
+    anzahl = 0
+
+    for letter in wort:
+        if letter in vokale:
+            anzahl += 1
+    return anzahl
+
+wort = input("Wort: ")
+ergebnis = count_vokale(wort)
+print(f"Das Wort '{wort}' enthält {ergebnis} Vokale.")
