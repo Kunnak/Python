@@ -1,0 +1,15 @@
+def verstecke_ausgabe(id):
+    count = 0
+    for buchstabe in id:
+        count += 1
+        liste.append(buchstabe)
+    if count != 12:
+        print("Eingabe nicht korrekt !")
+        quit()
+    print('*', '*', '*', '*', '*', '*', '*', '*', liste[count - 4],liste[count - 3],liste[count - 2],liste[count - 1])
+
+
+
+id = input("Zahl (12 Ziffern): ")
+liste = []
+verstecke_ausgabe(id)
