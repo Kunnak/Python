@@ -1,3 +1,5 @@
+import keyboard
+
 def on_esc_pressed(e):
     if e.event_type == keyboard.KEY_DOWN:
         keyboard.unhook_all()  # Alle Tastaturhaken entfernen
