@@ -7,3 +7,4 @@ meine ersten Funktionen und Skripte
 - Taschenrechner
 - Preisberechnung nach Rabatt
 - Selektion von Integern aus einer Liste, bestehend aus Strings und Integern
+- Summe einer Liste berechnen
