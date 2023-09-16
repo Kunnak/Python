@@ -8,3 +8,6 @@ meine ersten Funktionen und Skripte
 - Preisberechnung nach Rabatt
 - Selektion von Integern aus einer Liste, bestehend aus Strings und Integern
 - Summe einer Liste berechnen
+- Edabit Stuff:
+    - Skripte verschiedener Art
+    - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
