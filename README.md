@@ -11,3 +11,4 @@ meine ersten Funktionen und Skripte
 - Edabit Stuff:
     - Skripte verschiedener Art
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
+- EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
