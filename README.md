@@ -12,3 +12,4 @@ meine ersten Funktionen und Skripte
     - Skripte verschiedener Art
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
+- Ausgabe doppelt ausgeben (Test -> TTeesstt)
