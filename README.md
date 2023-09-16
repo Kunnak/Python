@@ -10,6 +10,10 @@ meine ersten Funktionen und Skripte
 - Summe einer Liste berechnen
 - Edabit Stuff:
     - Skripte verschiedener Art
+        - Satz des Pythagoras
+        - Zeitumrechnung (Stunden in Minuten und Sekunden)
+        - Berechnung der Länge des Abstands zwischen 2 Koordinaten
+        - Berechnung des Unterschieds zwischen Flächeninhalt des Inkreis und des Umkreis
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
 - Ausgabe doppelt ausgeben (Test -> TTeesstt)
