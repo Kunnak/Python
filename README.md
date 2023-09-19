@@ -19,6 +19,6 @@ Meine ersten Funktionen und Skripte:
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
       
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
-- Ausgabe doppelt ausgeben (Test -> TTeesstt)
+- Eingabe doppelt ausgeben (Test -> TTeesstt)
 
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
