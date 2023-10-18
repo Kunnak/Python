@@ -437,3 +437,86 @@ r = int(input("Radius: "))
 
 berechnung_inkreis(r)
 '''
+
+# gerade Zahlen und ungerrade Zahlen in einer Liste zusammenzählen
+
+'''
+liste = []
+liste2 = []
+
+lol = 0
+
+zahl = int(input("Zahl eingeben: "))
+liste.append(zahl)
+frage = ""
+
+while frage != "nein":
+    zahl = int(input("Zahle eingeben: "))
+    liste.append(zahl)
+    frage = input("noch eine zahl eingeben ? (ja / nein): ")
+else:
+    print(liste)
+
+for i in liste:
+    if i % 2 == 0:
+        i = i + i
+
+liste2.append(i)
+
+for i in liste:
+    if i % 2 != 0:
+        lol = lol + i
+        print(lol)
+
+liste2.append(lol)
+
+print(liste2)
+'''
+
+# Hex to Binary
+
+'''
+def hex_to_binary(hex_num):
+    try:
+        dezimal = int(hex_num, 16)
+        binary = bin(dezimal)
+        return binary[2:]
+    except ValueError:
+        return "Ungültige HEX-Eingabe"
+
+hex_input = input("HEX-Zahl: ")
+binary_ergebnis = hex_to_binary(hex_input)
+print(f"Die Binärzahl von {hex_input} ist: {binary_ergebnis}")
+
+'''
+
+# Algorithm 1 Recursion
+
+'''
+
+num = int(input("x= "))
+def factorial(num):
+    if int(num) == 0:
+        return 1
+    else:
+        return int(num) * factorial(num - 1)
+
+print(factorial(num))
+
+'''
+
+# 
+
+'''
+
+
+
+'''
+
+#
+
+'''
+
+
+
+'''
