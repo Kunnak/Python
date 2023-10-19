@@ -1,0 +1,17 @@
+def dezimal_in_bin_hex(dezimalzahl):
+    try:
+        dezimal = int(dezimalzahl)
+        binär = bin(dezimal)
+        hexadezimal = hex(dezimal).upper()
+        return binär[2:], hexadezimal
+    except ValueError:
+        return "Ungültige Dezimalzahl"
+
+dezimal_input = input("Dezimalzahl: ")
+binär_ergebnis, hex_ergebnis = dezimal_in_bin_hex(dezimal_input)
+
+if binär_ergebnis != "Ungültige Dezimalzahl":
+    print(f"Binärzahl von {dezimal_input} ist: {binär_ergebnis}")
+    print(f"Hexadezimalzahl von {dezimal_input} ist: {hex_ergebnis[2:]}")
+else:
+    print(binär_ergebnis)
