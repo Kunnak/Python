@@ -1,6 +1,7 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
 - Umrechnung Dezimal zu Binär
+- Umrechnung Dezimal zu Binär und Hexa
 - Code verbergen bis auf letzten 4 Stellen
 - Zählen der Vokale in einem String
 - Überprüfen ob die Eingabe gleich viele 'A's' wie 'E's' beinhaltet
