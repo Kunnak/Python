@@ -1,7 +1,6 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
 - Umrechnung Dezimal zu Binär und Hexa
-- Summe einer Liste berechnen
 - Edabit Stuff:
     - Skripte verschiedener Art
         - Listen sortieren
