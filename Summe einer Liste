@@ -1,9 +1,0 @@
-def berechnung(liste, summe):
-    for item in liste:
-        summe = summe + item
-    print(summe)
-
-summe = 0
-liste = [10, 6, 8]
-
-berechnung(liste, summe)
