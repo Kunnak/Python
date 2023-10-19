@@ -26,7 +26,7 @@ Meine ersten Funktionen und Skripte:
         - Berechnung des Unterschieds zwischen Flächeninhalt des Inkreis und des Umkreis
         - gerade Zahlen und ungerrade Zahlen in einer Liste zusammenzählen
         - Hexadezimal zu Binär
-        - 1. Algorithmus (Recursion)
+        - Algorithmus (Recursion)
         - Adjacent Nodes
         - DAC Volt umrechnen
         - Fizz Buzz Ausgabe MOD 3 | 5
