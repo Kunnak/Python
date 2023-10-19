@@ -33,7 +33,7 @@ Meine ersten Funktionen und Skripte:
         - Fizz Buzz Ausgabe MOD 3 | 5
         - Höchste Zahl in einer Liste (Recursion)
         - Schritte eines Roboters abarbeiten
-        - FLip Bits
+        - Flip Bits
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
 - Eingabe doppelt ausgeben (Test -> TTeesstt)
