@@ -1,8 +1,0 @@
-def rabatt_berechnen(preis, rabatt):
-    summe = int(preis) - ((int(preis) / 100) * int(rabatt))
-    print(int(summe))
-
-preis = input('Preis: ')
-rabatt = input('Rabatt: ')
-
-rabatt_berechnen(preis, rabatt)
