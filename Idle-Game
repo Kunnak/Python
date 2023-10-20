@@ -1,0 +1,416 @@
+# IDLE GAMER
+
+import pygame
+import math
+import keyboard
+
+pygame.init()
+
+# Bildschirmeinstellungen
+screen_width, screen_height = 1400, 750
+
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Yannicks Idle-Game!")
+clock = pygame.time.Clock()
+
+########################################################################################################################
+
+# Balleigenschaften
+ball_radius = 15
+ball_x = screen_width // 2
+ball_y = 700
+ball_speed = 10
+ball_direction = 43  # Eintrittswinkel in Grad
+
+colorcode = (0, 225, 0)
+geld = 0
+
+block_leben = 3
+block_hoch = 50
+block_breite = 100
+
+# Erstelle ein Rect-Objekt für den Ball
+ball_rect = pygame.Rect(screen_width // 2 - ball_radius, screen_height // 2 - ball_radius, 2 * ball_radius, 2 * ball_radius)
+
+########################################################################################################################
+
+font = pygame.font.Font(None, 36)  # Wähle eine Schriftart und Schriftgröße
+punkte_text = font.render(f'Geld: {geld}', True, (255, 255, 255))  # Erstelle einen Text mit der aktuellen Punktzahl
+
+
+class Ball:
+    def __init__(self, x, y, direction):
+        self.x = x
+        self.y = y
+        self.direction = direction
+
+    def move(self):
+        self.x += ball_speed * math.cos(self.direction * (3.1416 / 180))
+        self.y += ball_speed * math.sin(self.direction * (3.1416 / 180))
+
+    def draw(self):
+        pygame.draw.circle(screen, (0, 0, 0), (int(self.x), int(self.y)), ball_radius)
+
+class Block:
+    def __init__(self, x, y, width, height, color, max_health):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
+        self.max_health = max_health
+        self.health = max_health
+
+    def draw(self, screen):
+        # Zeichne den Block in einer Farbe, die von seiner aktuellen Gesundheit abhängt
+        health_ratio = self.health / self.max_health
+        red = int(255 * (1 - health_ratio))
+        green = int(255 * health_ratio)
+        block_color = (red, green, 0)
+        pygame.draw.rect(screen, block_color, self.rect)
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health <= 0:
+            global geld
+            geld += 1
+            return True # Der Block soll entfernt werden
+        return False
+
+########################################################################################################################
+
+# Erstelle eine Liste von Blöcken für verschiedene Gruppen
+block_data_group1 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group2 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group3 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group4 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group5 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group6 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group7 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group8 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group9 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+
+block_data_group10 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group11 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group12 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group13 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group14 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+block_data_group15 = [
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+    (100, 100, block_breite, block_hoch, (0, 0, 0), block_leben),
+]
+
+blocks_group1 = [Block(*data) for data in block_data_group1]
+blocks_group2 = [Block(*data) for data in block_data_group2]
+blocks_group3 = [Block(*data) for data in block_data_group3]
+blocks_group4 = [Block(*data) for data in block_data_group4]
+blocks_group5 = [Block(*data) for data in block_data_group5]
+blocks_group6 = [Block(*data) for data in block_data_group6]
+blocks_group7 = [Block(*data) for data in block_data_group7]
+blocks_group8 = [Block(*data) for data in block_data_group8]
+blocks_group9 = [Block(*data) for data in block_data_group9]
+blocks_group10 = [Block(*data) for data in block_data_group10]
+blocks_group11 = [Block(*data) for data in block_data_group11]
+blocks_group12 = [Block(*data) for data in block_data_group12]
+blocks_group13 = [Block(*data) for data in block_data_group13]
+blocks_group14 = [Block(*data) for data in block_data_group14]
+blocks_group15 = [Block(*data) for data in block_data_group15]
+
+########################################################################################################################
+
+# Helferfunktion zum Zeichnen der Blöcke
+def draw_blocks(blocks):
+    for block in blocks:
+        block.draw(screen)
+
+# Aktualisiere die Positionen der Blöcke in den Gruppen entsprechend
+def update_block_positions(blocks, block_group_x, block_group_y):
+    for i, block in enumerate(blocks):
+        row = i // 2
+        col = i % 2
+        block.rect.x = block_group_x + col * (block.rect.width + 5)
+        block.rect.y = block_group_y + row * (block.rect.height + 5)
+
+########################################################################################################################
+
+block_group_x1 = 100
+block_group_y1 = 100
+
+block_group_x2 = 100
+block_group_y2 = 300
+
+block_group_x3 = 100
+block_group_y3 = 500
+
+block_group_x4 = 350
+block_group_y4 = 100
+
+block_group_x5 = 350
+block_group_y5 = 300
+
+block_group_x6 = 350
+block_group_y6 = 500
+
+block_group_x7 = 600
+block_group_y7 = 100
+
+block_group_x8 = 600
+block_group_y8 = 300
+
+block_group_x9 = 600
+block_group_y9 = 500
+
+block_group_x10 = 850
+block_group_y10 = 100
+
+block_group_x11 = 850
+block_group_y11 = 300
+
+block_group_x12 = 850
+block_group_y12 = 500
+
+block_group_x13 = 1100
+block_group_y13 = 100
+
+block_group_x14 = 1100
+block_group_y14 = 300
+
+block_group_x15 = 1100
+block_group_y15 = 500
+
+
+update_block_positions(blocks_group1, block_group_x1, block_group_y1)
+update_block_positions(blocks_group2, block_group_x2, block_group_y2)
+update_block_positions(blocks_group3, block_group_x3, block_group_y3)
+update_block_positions(blocks_group4, block_group_x4, block_group_y4)
+update_block_positions(blocks_group5, block_group_x5, block_group_y5)
+update_block_positions(blocks_group6, block_group_x6, block_group_y6)
+update_block_positions(blocks_group7, block_group_x7, block_group_y7)
+update_block_positions(blocks_group8, block_group_x8, block_group_y8)
+update_block_positions(blocks_group9, block_group_x9, block_group_y9)
+update_block_positions(blocks_group10, block_group_x10, block_group_y10)
+update_block_positions(blocks_group11, block_group_x11, block_group_y11)
+update_block_positions(blocks_group12, block_group_x12, block_group_y12)
+update_block_positions(blocks_group13, block_group_x13, block_group_y13)
+update_block_positions(blocks_group14, block_group_x14, block_group_y14)
+update_block_positions(blocks_group15, block_group_x15, block_group_y15)
+
+########################################################################################################################
+
+# Überprüfung auf Kollision zwischen Kugel und Blöcken in den Gruppen
+def check_collisions(ball_rect, blocks):
+    global ball_direction  # Füge diese Zeile hinzu
+    blocks_to_remove = []  # Erstelle eine Liste für Blöcke, die entfernt werden sollen
+    for block in blocks:
+        if ball_rect.colliderect(block.rect):
+            # Hier erkenne die Kollision und ändere die Richtung der Kugel
+            if ball_rect.centerx < block.rect.left or ball_rect.centerx > block.rect.right:
+                # Kollision an der Seite des Blocks
+                ball_direction = 180 - ball_direction
+            else:
+                # Kollision an der Ober- oder Unterseite des Blocks
+                ball_direction = -ball_direction
+
+            # Füge den getroffenen Block zur Liste der zu entfernenden Blöcke hinzu
+            blocks_to_remove.append(block)
+
+    # Entferne die Blöcke aus der Gruppe
+    for block in blocks_to_remove:
+        if block.take_damage(1):  # Schade dem Block und prüfe, ob er entfernt werden soll
+            blocks.remove(block)
+
+########################################################################################################################
+########################################      START DES PROGRAMMS     ##################################################
+########################################################################################################################
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                exit()
+
+    # Aktualisiere das Ball-Rechteck
+    ball_rect.center = (ball_x, ball_y)
+
+########################################################################################################################
+
+    # Überprüfung auf Kollision zwischen Kugel und Blöcken in beiden Gruppen
+    check_collisions(ball_rect, blocks_group1)
+    check_collisions(ball_rect, blocks_group2)
+    check_collisions(ball_rect, blocks_group3)
+    check_collisions(ball_rect, blocks_group4)
+    check_collisions(ball_rect, blocks_group5)
+    check_collisions(ball_rect, blocks_group6)
+    check_collisions(ball_rect, blocks_group7)
+    check_collisions(ball_rect, blocks_group8)
+    check_collisions(ball_rect, blocks_group9)
+    check_collisions(ball_rect, blocks_group10)
+    check_collisions(ball_rect, blocks_group11)
+    check_collisions(ball_rect, blocks_group12)
+    check_collisions(ball_rect, blocks_group13)
+    check_collisions(ball_rect, blocks_group14)
+    check_collisions(ball_rect, blocks_group15)
+
+########################################################################################################################
+
+    # Ballbewegung
+    ball_x += ball_speed * math.cos(ball_direction * (3.1416 / 180))
+    ball_y += ball_speed * math.sin(ball_direction * (3.1416 / 180))
+
+    # Kollision mit den Bildschirmrändern
+    if ball_x - ball_radius < 0 or ball_x + ball_radius > screen_width:
+        ball_direction = 180 - ball_direction  # Austrittswinkel = 180 - Eintrittswinkel
+    if ball_y - ball_radius < 0 or ball_y + ball_radius > screen_height:
+        ball_direction = -ball_direction   # Austrittswinkel = Eintrittswinkel * -1
+
+    # Hintergrund löschen
+    screen.fill((0, 0, 0))
+
+    # Ball zeichnen
+    pygame.draw.circle(screen, (255, 255, 255), (int(ball_x), int(ball_y)), ball_radius)
+
+########################################################################################################################
+
+    # Zeichne die Blöcke
+    draw_blocks(blocks_group1)
+    draw_blocks(blocks_group2)
+    draw_blocks(blocks_group3)
+    draw_blocks(blocks_group4)
+    draw_blocks(blocks_group5)
+    draw_blocks(blocks_group6)
+    draw_blocks(blocks_group7)
+    draw_blocks(blocks_group8)
+    draw_blocks(blocks_group9)
+    draw_blocks(blocks_group10)
+    draw_blocks(blocks_group11)
+    draw_blocks(blocks_group12)
+    draw_blocks(blocks_group13)
+    draw_blocks(blocks_group14)
+    draw_blocks(blocks_group15)
+
+########################################################################################################################
+
+    # Anzeige der Punkte aktualisieren
+    punkte_text = font.render(f'Punkte: {geld}', True, (255, 255, 255))
+    screen.blit(punkte_text, (10, 10))
+
+    pygame.display.update()
+    clock.tick(60)
