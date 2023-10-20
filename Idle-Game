@@ -1,5 +1,3 @@
-# IDLE GAMER
-
 import pygame
 import math
 import keyboard
@@ -8,19 +6,20 @@ pygame.init()
 
 # Bildschirmeinstellungen
 screen_width, screen_height = 1400, 750
-
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Yannicks Idle-Game!")
 clock = pygame.time.Clock()
 
+
+
+
 ########################################################################################################################
 
 # Balleigenschaften
+ball_speed = 5
+ball_direction = 25  # Eintrittswinkel in Grad
+balls = []  # Eine Liste, um Bälle zu speichern
 ball_radius = 15
-ball_x = screen_width // 2
-ball_y = 700
-ball_speed = 10
-ball_direction = 43  # Eintrittswinkel in Grad
 
 colorcode = (0, 225, 0)
 geld = 0
@@ -29,27 +28,44 @@ block_leben = 3
 block_hoch = 50
 block_breite = 100
 
+########################################################################################################################
+
 # Erstelle ein Rect-Objekt für den Ball
 ball_rect = pygame.Rect(screen_width // 2 - ball_radius, screen_height // 2 - ball_radius, 2 * ball_radius, 2 * ball_radius)
 
-########################################################################################################################
 
 font = pygame.font.Font(None, 36)  # Wähle eine Schriftart und Schriftgröße
 punkte_text = font.render(f'Geld: {geld}', True, (255, 255, 255))  # Erstelle einen Text mit der aktuellen Punktzahl
 
 
+# Helferfunktion zum Zeichnen der Bälle
+def draw_balls(balls):
+    for ball in balls:
+        ball.draw(screen)
+
 class Ball:
-    def __init__(self, x, y, direction):
+    def __init__(self, x, y, direction, speed):
         self.x = x
         self.y = y
         self.direction = direction
+        self.speed = speed
+        self.radius = 15
 
     def move(self):
-        self.x += ball_speed * math.cos(self.direction * (3.1416 / 180))
-        self.y += ball_speed * math.sin(self.direction * (3.1416 / 180))
+        self.x += self.speed * math.cos(self.direction * (math.pi / 180))
+        self.y += self.speed * math.sin(self.direction * (math.pi / 180))
 
-    def draw(self):
-        pygame.draw.circle(screen, (0, 0, 0), (int(self.x), int(self.y)), ball_radius)
+    def update_rect(self):
+        # Aktualisiere das Rechteck des Balls basierend auf seiner Position
+        self.rect = pygame.Rect(self.x - self.radius, self.y - self.radius, 2 * self.radius, 2 * self.radius)
+
+    def draw(self, screen):
+        pygame.draw.circle(screen, (255, 255, 255), (int(self.x), int(self.y)), self.radius)
+
+# Ball erstellen
+def create_ball(x, y):
+    new_ball = Ball(x, y, ball_direction, ball_speed)
+    balls.append(new_ball)
 
 class Block:
     def __init__(self, x, y, width, height, color, max_health):
@@ -71,8 +87,10 @@ class Block:
         if self.health <= 0:
             global geld
             geld += 1
-            return True # Der Block soll entfernt werden
+            return True  # Der Block soll entfernt werden
         return False
+
+
 
 ########################################################################################################################
 
@@ -231,6 +249,17 @@ blocks_group15 = [Block(*data) for data in block_data_group15]
 
 ########################################################################################################################
 
+# Helferfunktion zum Überprüfen, ob alle Blöcke in einer Gruppe verschwunden sind
+def all_blocks_destroyed(blocks):
+    return all(block.health <= 0 for block in blocks)
+
+# Helferfunktion zum Überprüfen, ob alle Blöcke in ALLEN Gruppen verschwunden sind
+def all_blocks_destroyed_in_all_groups(block_groups):
+    return all(all_blocks_destroyed(group) for group in block_groups)
+
+# Die Anzahl der Gruppen von Blöcken
+num_block_groups = 15
+
 # Helferfunktion zum Zeichnen der Blöcke
 def draw_blocks(blocks):
     for block in blocks:
@@ -243,6 +272,9 @@ def update_block_positions(blocks, block_group_x, block_group_y):
         col = i % 2
         block.rect.x = block_group_x + col * (block.rect.width + 5)
         block.rect.y = block_group_y + row * (block.rect.height + 5)
+
+
+
 
 ########################################################################################################################
 
@@ -310,82 +342,84 @@ update_block_positions(blocks_group15, block_group_x15, block_group_y15)
 
 ########################################################################################################################
 
+
 # Überprüfung auf Kollision zwischen Kugel und Blöcken in den Gruppen
 def check_collisions(ball_rect, blocks):
-    global ball_direction  # Füge diese Zeile hinzu
-    blocks_to_remove = []  # Erstelle eine Liste für Blöcke, die entfernt werden sollen
     for block in blocks:
         if ball_rect.colliderect(block.rect):
-            # Hier erkenne die Kollision und ändere die Richtung der Kugel
-            if ball_rect.centerx < block.rect.left or ball_rect.centerx > block.rect.right:
-                # Kollision an der Seite des Blocks
-                ball_direction = 180 - ball_direction
-            else:
-                # Kollision an der Ober- oder Unterseite des Blocks
-                ball_direction = -ball_direction
+            if block.health > 0:
+                if ball_rect.centerx < block.rect.left or ball_rect.centerx > block.rect.right:
+                    ball.direction = 180 - ball.direction
+                else:
+                    ball.direction = -ball.direction
+                if block.take_damage(1):  # Nur entfernen, wenn der Block kein Leben mehr hat
+                    blocks.remove(block)
 
-            # Füge den getroffenen Block zur Liste der zu entfernenden Blöcke hinzu
-            blocks_to_remove.append(block)
 
-    # Entferne die Blöcke aus der Gruppe
-    for block in blocks_to_remove:
-        if block.take_damage(1):  # Schade dem Block und prüfe, ob er entfernt werden soll
-            blocks.remove(block)
+
+
 
 ########################################################################################################################
 ########################################      START DES PROGRAMMS     ##################################################
 ########################################################################################################################
 
+# Create an initial ball at the center of the screen
+initial_ball = Ball(screen_width // 2, screen_height // 2, ball_direction, ball_speed)
+balls.append(initial_ball)
 
-while True:
+running = True
+block_respawned = 0  # Zählt, wie viele Blockgruppen erneut erstellt wurden
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
+            running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                pygame.quit()
-                exit()
+                running = False
 
-    # Aktualisiere das Ball-Rechteck
-    ball_rect.center = (ball_x, ball_y)
-
-########################################################################################################################
-
-    # Überprüfung auf Kollision zwischen Kugel und Blöcken in beiden Gruppen
-    check_collisions(ball_rect, blocks_group1)
-    check_collisions(ball_rect, blocks_group2)
-    check_collisions(ball_rect, blocks_group3)
-    check_collisions(ball_rect, blocks_group4)
-    check_collisions(ball_rect, blocks_group5)
-    check_collisions(ball_rect, blocks_group6)
-    check_collisions(ball_rect, blocks_group7)
-    check_collisions(ball_rect, blocks_group8)
-    check_collisions(ball_rect, blocks_group9)
-    check_collisions(ball_rect, blocks_group10)
-    check_collisions(ball_rect, blocks_group11)
-    check_collisions(ball_rect, blocks_group12)
-    check_collisions(ball_rect, blocks_group13)
-    check_collisions(ball_rect, blocks_group14)
-    check_collisions(ball_rect, blocks_group15)
-
-########################################################################################################################
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if geld >= 20:  # Überprüfen, ob der Spieler genügend Punkte hat
+                geld -= 20  # 20 Punkte abziehen
+                mouse_x, mouse_y = pygame.mouse.get_pos()
+                create_ball(mouse_x, mouse_y)
 
     # Ballbewegung
-    ball_x += ball_speed * math.cos(ball_direction * (3.1416 / 180))
-    ball_y += ball_speed * math.sin(ball_direction * (3.1416 / 180))
+    for ball in balls:
+        ball.move()
+        ball.update_rect()
 
     # Kollision mit den Bildschirmrändern
-    if ball_x - ball_radius < 0 or ball_x + ball_radius > screen_width:
-        ball_direction = 180 - ball_direction  # Austrittswinkel = 180 - Eintrittswinkel
-    if ball_y - ball_radius < 0 or ball_y + ball_radius > screen_height:
-        ball_direction = -ball_direction   # Austrittswinkel = Eintrittswinkel * -1
+    for ball in balls:
+        if ball.x - ball.radius < 0 or ball.x + ball.radius > screen_width:
+            ball.direction = 180 - ball.direction
+        if ball.y - ball.radius < 0 or ball.y + ball.radius > screen_height:
+            ball.direction = -ball.direction
+
+    # Überprüfung auf Kollision zwischen Ball und Blöcken in beiden Gruppen
+    for ball in balls:
+        check_collisions(ball.rect, blocks_group1)
+        check_collisions(ball.rect, blocks_group2)
+        check_collisions(ball.rect, blocks_group3)
+        check_collisions(ball.rect, blocks_group4)
+        check_collisions(ball.rect, blocks_group5)
+        check_collisions(ball.rect, blocks_group6)
+        check_collisions(ball.rect, blocks_group7)
+        check_collisions(ball.rect, blocks_group8)
+        check_collisions(ball.rect, blocks_group9)
+        check_collisions(ball.rect, blocks_group10)
+        check_collisions(ball.rect, blocks_group11)
+        check_collisions(ball.rect, blocks_group12)
+        check_collisions(ball.rect, blocks_group13)
+        check_collisions(ball.rect, blocks_group14)
+        check_collisions(ball.rect, blocks_group15)
+
+########################################################################################################################
 
     # Hintergrund löschen
     screen.fill((0, 0, 0))
 
-    # Ball zeichnen
-    pygame.draw.circle(screen, (255, 255, 255), (int(ball_x), int(ball_y)), ball_radius)
+    # Zeichne die Bälle
+    draw_balls(balls)
 
 ########################################################################################################################
 
@@ -407,6 +441,19 @@ while True:
     draw_blocks(blocks_group15)
 
 ########################################################################################################################
+
+    # Überprüfe, ob alle Blöcke in ALLEN Gruppen verschwunden sind und erneuere sie dann
+    if all_blocks_destroyed_in_all_groups([blocks_group1, blocks_group2, blocks_group3, ...]):
+        block_respawned += 1
+        blocks_group1 = [Block(*data) for data in block_data_group1]
+        update_block_positions(blocks_group1, block_group_x1, block_group_y1)
+        # Wiederhole diesen Abschnitt für alle anderen Blockgruppen (blocks_group2, blocks_group3, ...)
+
+    # Wenn alle Blockgruppen erneut erstellt wurden, kannst du hier eine "Gewonnen"-Aktion hinzufügen
+    if block_respawned == num_block_groups:
+        print("Du hast gewonnen!")
+        running = False  # Beende das Spiel, wenn gewonnen
+
 
     # Anzeige der Punkte aktualisieren
     punkte_text = font.render(f'Punkte: {geld}', True, (255, 255, 255))
