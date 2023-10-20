@@ -90,8 +90,6 @@ class Block:
             return True  # Der Block soll entfernt werden
         return False
 
-
-
 ########################################################################################################################
 
 # Erstelle eine Liste von Blöcken für verschiedene Gruppen
@@ -253,6 +251,12 @@ blocks_group15 = [Block(*data) for data in block_data_group15]
 def all_blocks_destroyed(blocks):
     return all(block.health <= 0 for block in blocks)
 
+# Helferfunktion zum Erneuern einer Gruppe von Blöcken
+def respawn_blocks(blocks, block_data):
+    for i, block in enumerate(blocks):
+        block_data_item = block_data[i]
+        block.rect = pygame.Rect(*block_data_item)
+
 # Helferfunktion zum Überprüfen, ob alle Blöcke in ALLEN Gruppen verschwunden sind
 def all_blocks_destroyed_in_all_groups(block_groups):
     return all(all_blocks_destroyed(group) for group in block_groups)
@@ -364,11 +368,11 @@ def check_collisions(ball_rect, blocks):
 ########################################################################################################################
 
 # Create an initial ball at the center of the screen
-initial_ball = Ball(screen_width // 2, screen_height // 2, ball_direction, ball_speed)
-balls.append(initial_ball)
+ball = Ball(screen_width // 2, screen_height // 2, ball_direction, ball_speed)
+balls.append(ball)
+
 
 running = True
-block_respawned = 0  # Zählt, wie viele Blockgruppen erneut erstellt wurden
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -443,16 +447,22 @@ while running:
 ########################################################################################################################
 
     # Überprüfe, ob alle Blöcke in ALLEN Gruppen verschwunden sind und erneuere sie dann
-    if all_blocks_destroyed_in_all_groups([blocks_group1, blocks_group2, blocks_group3, ...]):
-        block_respawned += 1
-        blocks_group1 = [Block(*data) for data in block_data_group1]
-        update_block_positions(blocks_group1, block_group_x1, block_group_y1)
-        # Wiederhole diesen Abschnitt für alle anderen Blockgruppen (blocks_group2, blocks_group3, ...)
-
-    # Wenn alle Blockgruppen erneut erstellt wurden, kannst du hier eine "Gewonnen"-Aktion hinzufügen
-    if block_respawned == num_block_groups:
-        print("Du hast gewonnen!")
-        running = False  # Beende das Spiel, wenn gewonnen
+    if all_blocks_destroyed_in_all_groups([blocks_group1, blocks_group2, blocks_group3, blocks_group4, blocks_group5, blocks_group6, blocks_group7, blocks_group8, blocks_group9, blocks_group10, blocks_group11, blocks_group12, blocks_group13, blocks_group14, blocks_group15]):
+        respawn_blocks(blocks_group1, block_data_group1)
+        respawn_blocks(blocks_group2, block_data_group2)
+        respawn_blocks(blocks_group3, block_data_group3)
+        respawn_blocks(blocks_group4, block_data_group4)
+        respawn_blocks(blocks_group5, block_data_group5)
+        respawn_blocks(blocks_group6, block_data_group6)
+        respawn_blocks(blocks_group7, block_data_group7)
+        respawn_blocks(blocks_group8, block_data_group8)
+        respawn_blocks(blocks_group9, block_data_group9)
+        respawn_blocks(blocks_group10, block_data_group10)
+        respawn_blocks(blocks_group11, block_data_group11)
+        respawn_blocks(blocks_group12, block_data_group12)
+        respawn_blocks(blocks_group13, block_data_group13)
+        respawn_blocks(blocks_group14, block_data_group14)
+        respawn_blocks(blocks_group15, block_data_group15)
 
 
     # Anzeige der Punkte aktualisieren
