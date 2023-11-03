@@ -1,5 +1,7 @@
 wort = input(f"Wort, das erraten werden soll: ").lower()
 
+liste = []
+
 endwort = "_" * len(wort)
 fehler = 0
 counter = 0
@@ -21,11 +23,20 @@ while 10 - fehler > 0:
             endwort_list[index] = guess
             correct_guess = True
 
+
+
     if not correct_guess:
         fehler += 1
 
+
     endwort = "".join(endwort_list)  # Wir konvertieren die Liste zurück in einen String
 
+    liste.append(guess)
+
+    print("\n")
+    print("\n")
+    print("\n")
+    print(liste)
     print(f"\nWort: {endwort}")
     print(f"Fehleranzahl: {fehler}\n")
 
