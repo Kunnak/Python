@@ -1,5 +1,6 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
+- "Python generieren
 - Umrechnung Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
