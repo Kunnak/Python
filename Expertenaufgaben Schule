@@ -1,32 +1,50 @@
-# Passwort nach Kritieren für ein starkes Passwort überprüfen #
+###################################################################
+######################### Passwortprüfer ##########################
+###################################################################
 
+# Liste der Sonderzeichen
 sonderzeichen = ['?', '!', '§', '$', '%', '&', '/', '(', ')', '=', '@', '€', '{', '[', ']', '}', '<', '>', '-', '_', '.', ',', ':', ';', '+', '*', '#']
+
+# Boolean für Sonderzeichen
 szeichen = False
+
+# Boolean für Großbuchstaben
 buchstabe = False
 
+# Definition der Funktion
 def checkpasswort():
     global szeichen, buchstabe
-    if len(passwort) > 12:
 
+    # Check auf 12 Buchstaben
+    if len(passwort) >= 12:
         for i in passwort:
             if i in sonderzeichen:
                 szeichen = True
 
+        # Check auf Sonderzeichen
         if szeichen:
-
             for i in passwort:
                 if i.isupper():
                     buchstabe = True
 
+            # Check auf Großbuchstaben
             if buchstabe:
                 print("Passwort akzeptiert !")
 
+            # Fehlerausgabe Großbuchstaben
             else:
-                print("Dein Passwort hat kein Großbuchstaben")
-        else:
-            print("Dein Passwort hat kein Sonderzeichen")
-    else:
-        print("Dein passwort ist kürzer als 12 Zeichen")
+                print("kein Großbuchstaben")
 
+        # Fehlerausgabe Sonderzeichen
+        else:
+            print("kein Sonderzeichen")
+
+    # Fehlerausgabe Passwortlänge
+    else:
+        print("Passwort ist kürzer als 12 Zeichen")
+
+# Passworteingabe
 passwort = input("Passwort eingeben: ")
+
+# Aufrufen der Funktion
 checkpasswort()
