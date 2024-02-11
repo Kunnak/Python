@@ -1,3 +1,5 @@
+# Passwort nach Kritieren für ein starkes Passwort überprüfen #
+
 passwort = input("Passwort eingeben: ")
 sonderzeichen = ['?', '!', '§','$','%','&','/','(',')','=','@','€','{','[',']','}','<','>','-','_','.',',',':',';','+','*','#']
 szeichen = False
