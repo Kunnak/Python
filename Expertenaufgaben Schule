@@ -1,0 +1,30 @@
+passwort = input("Passwort eingeben: ")
+sonderzeichen = ['?', '!', '§','$','%','&','/','(',')','=','@','€','{','[',']','}','<','>','-','_','.',',',':',';','+','*','#']
+szeichen = False
+buchstabe = False
+
+def checkpasswort(passwort):
+    global szeichen, buchstabe
+    if len(passwort) > 12:
+
+        for i in passwort:
+            if i in sonderzeichen:
+                szeichen = True
+
+        if szeichen == True:
+
+            for i in passwort:
+                if i.isupper():
+                    buchstabe = True
+
+            if buchstabe == True:
+                print("Passwort akzeptiert !")
+
+            else:
+                print("Dein Passwort hat kein Großbuchstaben")
+        else:
+            print("Dein Passwort hat kein Sonderzeichen")
+    else:
+        print("Dein passwort ist kürzer als 12 Zeichen")
+
+checkpasswort(passwort)
