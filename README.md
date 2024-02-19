@@ -43,3 +43,4 @@ Meine ersten Funktionen und Skripte:
 - Eingabe doppelt ausgeben (Test -> TTeesstt)
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
+- String Ver- Entschlüsseln
