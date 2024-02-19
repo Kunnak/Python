@@ -1,6 +1,7 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
 - "Python generieren
+- CSV-Date auslesen - Datensatz anfügen
 - Umrechnung Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
@@ -36,5 +37,9 @@ Meine ersten Funktionen und Skripte:
         - Flip Bits
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
+- Expertenaufgaben Schule
+- Galgenmännchen
+- Idle-Game
 - Eingabe doppelt ausgeben (Test -> TTeesstt)
+- PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
