@@ -1,0 +1,46 @@
+klar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+crypt = ['f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e']
+modified_pw = []
+encrypted_pw = []
+pw = 'das ist mein passwort'
+
+
+def crypten():
+    global pw
+
+    x = 0
+
+    for i in pw:
+        for j in klar:
+            if i.lower() == j.lower():
+                modified_pw.append(crypt[x])
+                x = 0
+                continue
+
+            x += 1
+        x = 0
+
+    coded_pw = ' '.join(modified_pw)
+    return coded_pw
+
+
+def decrypten():
+    global pw
+    x = 0
+    for i in coded_pw:
+        for j in crypt:
+            if i.lower() == j.lower():
+                encrypted_pw.append(klar[x])
+                x = 0
+                continue
+            x += 1
+        x = 0
+
+    decoded_pw = ' '.join(encrypted_pw)
+    return decoded_pw
+
+
+coded_pw = crypten()
+print(coded_pw)
+decoded_pw = decrypten()
+print(decoded_pw)
