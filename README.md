@@ -37,6 +37,7 @@ Meine ersten Funktionen und Skripte:
         - Schritte eines Roboters abarbeiten
         - Flip Bits
     - Lösungen zu den Aufgaben  auf [https://edabit.com/challenges/python3]
+- Encrypt | Decrypt
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
 - Expertenaufgaben Schule
 - Galgenmännchen
@@ -45,4 +46,3 @@ Meine ersten Funktionen und Skripte:
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
-- Encrypt | Decrypt
