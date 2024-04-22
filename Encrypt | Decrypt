@@ -1,0 +1,124 @@
+# ------------------------------------------------- Deklaration -------------------------------------------------------#
+
+data = input("Eingabe: ")
+
+cache_list_after_input = []
+count_signs_data = 0
+
+modified_list_1 = []
+modified_list_2 = []
+
+modified_char_1 = ''
+
+counter = 0
+
+end_data_encrypt = ''
+
+
+# ---------------------------------------------------------------------------------------------------------------------#
+# --------------------------------------------------- ENCRYPT ---------------------------------------------------------#
+# ---------------------------------------------------------------------------------------------------------------------#
+
+
+# ---------------------------------------------- Erster Durchlauf -----------------------------------------------------#
+
+for item in data:
+
+    counter += 1
+
+    cache_list_after_input.append(item)
+    count_signs_data += 1
+
+    if counter % 2 == 0:
+
+        modified_char_1 = chr(ord(item) + 2)
+        modified_list_1.append(modified_char_1)
+
+    else:
+
+        modified_char_1 = chr(ord(item))
+        modified_list_1.append(modified_char_1)
+
+# ---------------------------------------------- Zweiter Durchlauf -----------------------------------------------------
+
+counter = 0
+
+for item in data:
+
+    counter += 1
+
+    if counter % 3 == 0:
+
+        modified_char_1 = chr(ord(item) + 4)
+        modified_list_2.append(modified_char_1)
+
+    else:
+
+        modified_char_1 = chr(ord(item) - 7)
+        modified_list_2.append(modified_char_1)
+
+
+for i in modified_list_2:
+    for j in i:
+        end_data_encrypt += j
+
+# --------------------------------------------------- Augabe -----------------------------------------------------------
+
+print(data)
+print(modified_list_2)
+print(end_data_encrypt)
+
+
+# ---------------------------------------------------------------------------------------------------------------------#
+# --------------------------------------------------- ENCRYPT ---------------------------------------------------------#
+# ---------------------------------------------------------------------------------------------------------------------#
+
+modified_list_1.clear()
+
+counter = 0
+
+# ----------------------------------------------- Erster Durchlauf -----------------------------------------------------
+
+for i in modified_list_2:
+
+    counter += 1
+
+    if counter % 3 == 0:
+
+        modified_char_1 = chr(ord(i) - 4)
+        modified_list_1.append(modified_char_1)
+
+    else:
+
+        modified_char_1 = chr(ord(i) + 7)
+        modified_list_1.append(modified_char_1)
+
+
+counter = 0
+modified_list_2.clear()
+
+# ----------------------------------------------- Zweiter Durchlauf ----------------------------------------------------
+
+for i in modified_list_1:
+
+    counter += 1
+
+    if counter % 2 == 0:
+
+        modified_char_2 = chr(ord(i) - 2)
+        modified_list_2.append(i)
+
+    else:
+
+        modified_list_2.append(i)
+
+end_data_decrypt = ''
+
+for i in modified_list_2:
+    for j in i:
+        end_data_decrypt += j
+
+# --------------------------------------------------- Augabe -----------------------------------------------------------
+
+print(modified_list_2)
+print(end_data_decrypt)
