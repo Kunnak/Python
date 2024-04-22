@@ -63,11 +63,8 @@ for i in modified_list_2:
         end_data_encrypt += j
 
 # --------------------------------------------------- Augabe -----------------------------------------------------------
-
-print(data)
-print(modified_list_2)
-print(end_data_encrypt)
-
+print(f"Die Eingabe war {data} Zeichen lang\n"
+      f"Verschlüsselter Text: {end_data_encrypt}")
 
 # ---------------------------------------------------------------------------------------------------------------------#
 # --------------------------------------------------- ENCRYPT ---------------------------------------------------------#
@@ -120,5 +117,5 @@ for i in modified_list_2:
 
 # --------------------------------------------------- Augabe -----------------------------------------------------------
 
-print(modified_list_2)
-print(end_data_decrypt)
+print(f"Eingegebener Text: {end_data_encrypt}\n"
+      f"Entschlüsselter Text: {end_data_decrypt}")
