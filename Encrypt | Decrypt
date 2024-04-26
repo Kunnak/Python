@@ -1,121 +1,42 @@
-# ------------------------------------------------- Deklaration -------------------------------------------------------#
+import Encrypter
+import Decrypter
+from docx import Document
 
-data = input("Eingabe: ")
+data = ()
 
-cache_list_after_input = []
-count_signs_data = 0
+doc = Document()
+encrypted_data = "encrypted.docx"
 
-modified_list_1 = []
-modified_list_2 = []
+insert_encrypt = ''.join(Encrypter.encrypt(data))
+doc.add_paragraph(insert_encrypt)
+doc.save(encrypted_data)
 
-modified_char_1 = ''
+doc = Document()
+decrypted_data = "original.docx"
 
-counter = 0
+insert_decrypt = ''.join(Decrypter.decrypt(insert_encrypt))
+doc.add_paragraph(insert_decrypt)
+doc.save(decrypted_data)
 
-end_data_encrypt = ''
-
-
-# ---------------------------------------------------------------------------------------------------------------------#
-# --------------------------------------------------- ENCRYPT ---------------------------------------------------------#
-# ---------------------------------------------------------------------------------------------------------------------#
-
-
-# ---------------------------------------------- Erster Durchlauf -----------------------------------------------------#
-
-for item in data:
-
-    counter += 1
-
-    cache_list_after_input.append(item)
-    count_signs_data += 1
-
-    if counter % 2 == 0:
-
-        modified_char_1 = chr(ord(item) + 2)
-        modified_list_1.append(modified_char_1)
-
-    else:
-
-        modified_char_1 = chr(ord(item))
-        modified_list_1.append(modified_char_1)
-
-# ---------------------------------------------- Zweiter Durchlauf -----------------------------------------------------
-
-counter = 0
-
-for item in data:
-
-    counter += 1
-
-    if counter % 3 == 0:
-
-        modified_char_1 = chr(ord(item) + 4)
-        modified_list_2.append(modified_char_1)
-
-    else:
-
-        modified_char_1 = chr(ord(item) - 7)
-        modified_list_2.append(modified_char_1)
+print("Dokumente wurden erfolgreich erstellt!")
 
 
-for i in modified_list_2:
-    for j in i:
-        end_data_encrypt += j
+#--------------------------------------------------------------------------------------#
 
-# --------------------------------------------------- Augabe -----------------------------------------------------------
-print(f"Die Eingabe war {data} Zeichen lang\n"
-      f"Verschlüsselter Text: {end_data_encrypt}")
+def encrypt(x):
 
-# ---------------------------------------------------------------------------------------------------------------------#
-# --------------------------------------------------- ENCRYPT ---------------------------------------------------------#
-# ---------------------------------------------------------------------------------------------------------------------#
+    cache = []
+    for i in x:
+        y = chr(ord(i) + 2)
+        cache.append(y)
+    return cache
 
-modified_list_1.clear()
+#--------------------------------------------------------------------------------------#
 
-counter = 0
+def decrypt(x):
 
-# ----------------------------------------------- Erster Durchlauf -----------------------------------------------------
-
-for i in modified_list_2:
-
-    counter += 1
-
-    if counter % 3 == 0:
-
-        modified_char_1 = chr(ord(i) - 4)
-        modified_list_1.append(modified_char_1)
-
-    else:
-
-        modified_char_1 = chr(ord(i) + 7)
-        modified_list_1.append(modified_char_1)
-
-
-counter = 0
-modified_list_2.clear()
-
-# ----------------------------------------------- Zweiter Durchlauf ----------------------------------------------------
-
-for i in modified_list_1:
-
-    counter += 1
-
-    if counter % 2 == 0:
-
-        modified_char_2 = chr(ord(i) - 2)
-        modified_list_2.append(i)
-
-    else:
-
-        modified_list_2.append(i)
-
-end_data_decrypt = ''
-
-for i in modified_list_2:
-    for j in i:
-        end_data_decrypt += j
-
-# --------------------------------------------------- Augabe -----------------------------------------------------------
-
-print(f"Eingegebener Text: {end_data_encrypt}\n"
-      f"Entschlüsselter Text: {end_data_decrypt}")
+    cache = []
+    for i in x:
+        y = chr(ord(i) - 2)
+        cache.append(y)
+    return cache
