@@ -46,3 +46,4 @@ Meine ersten Funktionen und Skripte:
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
+- Buchstabn zählen
