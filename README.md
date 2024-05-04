@@ -41,6 +41,7 @@ Meine ersten Funktionen und Skripte:
 - EndCorona (Berechnung der Iterationen bis Ausgangszahl - Genesene = Endzahl)
 - Expertenaufgaben Schule
 - Galgenmännchen
+- Get-Computer-  | Netzwerk Informationen
 - Idle-Game
 - Eingabe doppelt ausgeben (Test -> TTeesstt)
 - PasswortManager
