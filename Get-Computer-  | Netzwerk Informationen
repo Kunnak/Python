@@ -1,0 +1,37 @@
+import subprocess
+
+
+def get_info(command, file):
+
+    data = subprocess.run(['powershell', '-Command', command], capture_output=True, text=True)
+
+    with open(file, 'w') as file_output:
+        file_output.write(data.stdout)
+
+    print(f"{command}-Datei wurde erfolgreich erstellt!")
+
+
+command1 = 'Get-ComputerInfo'
+file1 = 'Get-ComputerInfo.txt'
+
+get_info(command1, file1)
+
+command2 = 'Get-NetIPConfiguration'
+file2 = 'Get-NetIPConfiguration.txt'
+
+get_info(command2, file2)
+
+command3 = 'Get-NetTCPConnection'
+file3 = 'Get-NetTCPConnection.txt'
+
+get_info(command3, file3)
+
+command4 = 'ipconfig'
+file4 = 'ipconfig.txt'
+
+get_info(command4, file4)
+
+command5 = 'Get-NetIPAddress'
+file5 = 'Get-NetIPAddress.txt'
+
+get_info(command5, file5)
