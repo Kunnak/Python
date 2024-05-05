@@ -2,19 +2,17 @@ import subprocess
 
 
 def main():
+
     running = True
     check_1 = True
     check_2 = True
     check_3 = True
-    ask_1 = ''
-    ask_2 = ''
     ask_3 = ''
-    ask_4 = ''
-
 
     while running:
 
         if check_1:
+
             ask_1 = input("Wollen Sie Daten extrahieren ? [ Y | N ] :  ")
 
             if ask_1.lower() == 'y':
@@ -31,6 +29,7 @@ def main():
             ask_2 = input("Wollen Sie eine Datei auslesen ? [ Y | N ] :  ")
 
             if ask_2.lower() == 'n':
+
                 exit()
 
             else:
@@ -58,77 +57,93 @@ def main():
         ask_4 = input("Wonach moechten Sie Suchen ? :  ")
 
         if ask_3.lower() == 'ci':
+
             search(ask_4, 'Get-ComputerInfo.txt')
+
         elif ask_3.lower() == 'ipc':
+
             search(ask_4, 'Get-NetIPConfiguration.txt')
+
         elif ask_3.lower() == 'nipa':
+
             search(ask_4, 'Get-NetIPAddress.txt')
+
         elif ask_3.lower() == 'nipc':
+
             search(ask_4, 'Get-NetIPConfiguration.txt')
+
         elif ask_3.lower() == 'ntcp':
+
             search(ask_4, 'Get-NetTCPConnection.txt')
+
         elif ask_3.lower() == 'all':
+
             search(ask_4, 'ALL.txt')
 
         ask_5 = input("Beenden ? [ Y | N ] :  ")
 
         if ask_5.lower() == 'y':
+
             running = False
 
 
 def get_info(command, file):
+
     data = subprocess.run(['powershell', '-Command', command], capture_output=True, text=True)
 
     with open(file, 'w') as file_output:
+
         file_output.write(data.stdout)
 
     print(f"{file} wurde erfolgreich erstellt!")
 
 
 def xtract():
+
     command1 = 'Get-ComputerInfo'
     file1 = 'Get-ComputerInfo.txt'
-
     get_info(command1, file1)
 
     command2 = 'Get-NetIPConfiguration'
     file2 = 'Get-NetIPConfiguration.txt'
-
     get_info(command2, file2)
 
     command3 = 'Get-NetTCPConnection'
     file3 = 'Get-NetTCPConnection.txt'
-
     get_info(command3, file3)
 
     command4 = 'ipconfig'
     file4 = 'ipconfig.txt'
-
     get_info(command4, file4)
 
     command5 = 'Get-NetIPAddress'
     file5 = 'Get-NetIPAddress.txt'
-
     get_info(command5, file5)
 
     command6 = 'Get-ComputerInfo; Get-NetIPConfiguration; Get-NetTCPConnection; ipconfig; Get-NetIPAddress'
     file6 = 'ALL.txt'
-
     get_info(command6, file6)
 
 
-# Searchfunktion
 def search(search_word, file):
+
     counter1 = 0
     counter2 = 0
 
     with open(file, 'r') as file:
+
         for i in file:
+
             for _ in i:
+
                 counter1 += 1
+
             if search_word.lower() in i.lower():
+
                 for _ in i:
+
                     counter2 += 1
+
                 print(i)
 
     print(f"Insgesamt besitzt das Dokument {counter1} Zeichen! \n"
