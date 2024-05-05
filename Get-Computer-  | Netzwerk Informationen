@@ -133,3 +133,5 @@ def search(search_word, file):
 
     print(f"Insgesamt besitzt das Dokument {counter1} Zeichen! \n"
           f"{counter2} davon sind in der Suche!")
+
+main()
