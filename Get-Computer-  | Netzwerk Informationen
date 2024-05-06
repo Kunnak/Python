@@ -18,6 +18,8 @@ def main():
             if ask_1.lower() == 'y':
 
                 xtract()
+                check_1 = False
+                check_2 = False
 
             else:
 
@@ -48,13 +50,18 @@ def main():
                           f'\n'
                           f'Eingabe:  ')
 
-            if ask_3.lower() == 'ci' or ask_3.lower() == 'ipc' or ask_3.lower() == 'nipa' or ask_3.lower() == 'nipc' or ask_3.lower() == 'ntcp' or ask_3.lower() == 'all':
+            if (ask_3.lower() == 'ci'
+                    or ask_3.lower() == 'ipc'
+                    or ask_3.lower() == 'nipa'
+                    or ask_3.lower() == 'nipc'
+                    or ask_3.lower() == 'ntcp'
+                    or ask_3.lower() == 'all'):
 
                 check_3 = False
 
         check_3 = True
 
-        ask_4 = input("Wonach moechten Sie Suchen ? :  ")
+        ask_4 = input("Wonach möchten Sie Suchen ? :  ")
 
         if ask_3.lower() == 'ci':
 
@@ -148,3 +155,6 @@ def search(search_word, file):
 
     print(f"Insgesamt besitzt das Dokument {counter1} Zeichen! \n"
           f"{counter2} davon sind in der Suche!")
+
+
+main()
