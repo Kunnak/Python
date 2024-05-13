@@ -8,20 +8,20 @@ director = ""
 actor = ""
 year = ""
 month = ""
-country = ""
+title = ""
 
 
 def ask_parameter():
-    global director, actor, year, month, country
+    global director, actor, year, month, title
     director = input("Regisseur: ")
     actor = input("Schauspieler: ")
+    title = input("Titel: ")
     year = input("Erscheinungsjahr: ")
     month = input("Hinzugefügt im: ")
-    country = input("Land: ")
 
 
 def get_data():
-    global counter, data, director, actor, year, month, country
+    global counter, data, director, actor, year, month, title
 
     with (open(data, "r", encoding="utf-8", errors="ignore") as file):
 
@@ -33,8 +33,8 @@ def get_data():
                 print(row)
                 counter += 1
 
-            if director.lower() in str(row[3]).lower() and actor.lower() in str(row[4]).lower() and (year in row[6] or year in row[7]) and month.lower() in str(row).lower() and country.lower() in str(row).lower():
-                print(f"\nID: {row[2]}\nTitel: {row[2]}\nDatum: {row[6]}\nCast: {row[4]}\nLand: {country}\nDauer: {row[9]}")
+            if director.lower() in str(row[3]).lower() and actor.lower() in str(row[4]).lower() and (year in row[6] or year in row[7]) and month.lower() in str(row).lower() and title.lower() in str(row[2].lower()):
+                print(f"\nID: {row[2]}\nTitel: {row[2]}\nDatum: {row[6]}\nCast: {row[4]}\nDauer: {row[9]}")
                 counter += 1
 
     if counter == 1:
