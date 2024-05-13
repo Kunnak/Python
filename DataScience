@@ -1,0 +1,47 @@
+import csv
+
+### NETFLIX ###
+
+data = "netflix.csv"
+counter = 0
+director = ""
+actor = ""
+year = ""
+month = ""
+country = ""
+
+
+def ask_parameter():
+    global director, actor, year, month, country
+    director = input("Regisseur: ")
+    actor = input("Schauspieler: ")
+    year = input("Erscheinungsjahr: ")
+    month = input("Hinzugefügt im: ")
+    country = input("Land: ")
+
+
+def get_data():
+    global counter, data, director, actor, year, month, country
+
+    with (open(data, "r", encoding="utf-8", errors="ignore") as file):
+
+        reader = csv.reader(file)
+
+        for row in reader:
+
+            if counter == 0:
+                print(row)
+                counter += 1
+
+            if director.lower() in str(row[3]).lower() and actor.lower() in str(row[4]).lower() and (year in row[6] or year in row[7]) and month.lower() in str(row).lower() and country.lower() in str(row).lower():
+                print(f"\nID: {row[2]}\nTitel: {row[2]}\nDatum: {row[6]}\nCast: {row[4]}\nLand: {country}\nDauer: {row[9]}")
+                counter += 1
+
+    if counter == 1:
+        print(f"Die Suche hate leider keine Treffer ergeben !")
+    else:
+        print(f"\nDie Suche hat {counter - 1} Filme oder Serien ergeben !")
+
+
+ask_parameter()
+get_data()
