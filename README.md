@@ -1,8 +1,10 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
 - "Python generieren
+- Zeichen in Datei zählen
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
+- DataScience
 - Umrechnung Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
