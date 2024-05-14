@@ -3,7 +3,8 @@ Meine ersten Funktionen und Skripte:
 - Buchstaben zählen
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
-- DataScience - Netflix
+- DataScience
+    - Netflix
 - Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
