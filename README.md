@@ -1,6 +1,5 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
-- "Python generieren
 - Zeichen in Datei zählen
 - Buchstabn zählen
 - CSV-Datei auslesen - Datensatz anfügen
