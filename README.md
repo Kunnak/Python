@@ -1,11 +1,10 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
-- Zeichen in Datei zählen
 - Buchstabn zählen
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
 - DataScience
-- Umrechnung Dezimal zu Binär und Hexa
+- Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
         - Listen sortieren
@@ -45,7 +44,7 @@ Meine ersten Funktionen und Skripte:
 - Galgenmännchen
 - Get-Computer-  | Netzwerk Informationen
 - Idle-Game
-- Eingabe doppelt ausgeben (Test -> TTeesstt)
+- Input doppelt ausgeben (Test -> TTeesstt)
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
