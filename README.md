@@ -1,6 +1,6 @@
 # Skripte
 Meine ersten Funktionen und Skripte:
-- Buchstabn zählen
+- Buchstaben zählen
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
 - DataScience - Netflix
