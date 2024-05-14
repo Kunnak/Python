@@ -2,6 +2,7 @@
 Meine ersten Funktionen und Skripte:
 - "Python generieren
 - Zeichen in Datei zählen
+- Buchstabn zählen
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
 - DataScience
@@ -49,4 +50,3 @@ Meine ersten Funktionen und Skripte:
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
-- Buchstabn zählen
