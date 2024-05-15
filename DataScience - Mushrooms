@@ -1,0 +1,156 @@
+import csv
+
+# SPALTEN #
+# [0] = Kappen durchmesser
+# [1] = Kappen form
+# [2] = Lamellenanhaftungen
+# [3] = Lamellen farbe
+# [4] = Stiel höhe
+# [5] = Stiel breite
+# [6] = Stiel farbe
+# [7] = Jahreszeit
+# [8] = Essbar
+
+data = 'Mushroom.csv'
+export_data = 'Mushroomstats.csv'
+
+counter_all_datasets = 0
+
+diameter_list = [0] * 17
+height_list = [0] * 12
+width_list = [0] * 18
+
+height_all = []
+width_all = []
+width_all_2 = []
+
+export_data_insert = []
+
+with open(data, 'r', encoding='utf-8', errors='ignore') as file:
+    reader = csv.reader(file)
+
+    for dataset in reader:
+
+        if counter_all_datasets == 0:
+            counter_all_datasets += 1
+            continue
+
+        if int(dataset[0]) < 100:
+            diameter_list[0] += 1
+        elif int(dataset[0]) < 200:
+            diameter_list[1] += 1
+        elif int(dataset[0]) < 300:
+            diameter_list[2] += 1
+        elif int(dataset[0]) < 400:
+            diameter_list[3] += 1
+        elif int(dataset[0]) < 500:
+            diameter_list[4] += 1
+        elif int(dataset[0]) < 600:
+            diameter_list[5] += 1
+        elif int(dataset[0]) < 700:
+            diameter_list[6] += 1
+        elif int(dataset[0]) < 800:
+            diameter_list[7] += 1
+        elif int(dataset[0]) < 900:
+            diameter_list[8] += 1
+        elif int(dataset[0]) < 1000:
+            diameter_list[9] += 1
+        elif int(dataset[0]) < 1100:
+            diameter_list[10] += 1
+        elif int(dataset[0]) < 1200:
+            diameter_list[11] += 1
+        elif int(dataset[0]) < 1300:
+            diameter_list[12] += 1
+        elif int(dataset[0]) < 1400:
+            diameter_list[13] += 1
+        elif int(dataset[0]) < 1500:
+            diameter_list[14] += 1
+        elif int(dataset[0]) < 1600:
+            diameter_list[15] += 1
+        elif int(dataset[0]) < 1700:
+            diameter_list[16] += 1
+
+        if float(dataset[4]) < 0.3:
+            height_list[0] += 1
+        elif float(dataset[4]) < 0.6:
+            height_list[1] += 1
+        elif float(dataset[4]) < 1:
+            height_list[2] += 1
+        elif float(dataset[4]) < 1.3:
+            height_list[3] += 1
+        elif float(dataset[4]) < 1.6:
+            height_list[4] += 1
+        elif float(dataset[4]) < 2:
+            height_list[5] += 1
+        elif float(dataset[4]) < 2.3:
+            height_list[6] += 1
+        elif float(dataset[4]) < 2.6:
+            height_list[7] += 1
+        elif float(dataset[4]) < 3:
+            height_list[8] += 1
+        elif float(dataset[4]) < 3.3:
+            height_list[9] += 1
+        elif float(dataset[4]) < 3.6:
+            height_list[10] += 1
+        elif float(dataset[4]) < 4:
+            height_list[11] += 1
+
+        width_all.append(dataset[5])
+
+for i in width_all:
+    width_all_2.append(int(i))
+
+for i in width_all_2:
+
+    if i < 200:
+        width_list[0] += 1
+    elif i < 400:
+        width_list[1] += 1
+    elif i < 600:
+        width_list[2] += 1
+    elif i < 800:
+        width_list[3] += 1
+    elif i < 1000:
+        width_list[4] += 1
+    elif i < 1200:
+        width_list[5] += 1
+    elif i < 1400:
+        width_list[6] += 1
+    elif i < 1600:
+        width_list[7] += 1
+    elif i < 1800:
+        width_list[8] += 1
+    elif i < 2000:
+        width_list[9] += 1
+    elif i < 2200:
+        width_list[10] += 1
+    elif i < 2400:
+        width_list[11] += 1
+    elif i < 2600:
+        width_list[12] += 1
+    elif i < 2800:
+        width_list[13] += 1
+    elif i < 3000:
+        width_list[14] += 1
+    elif i < 3200:
+        width_list[15] += 1
+    elif i < 3400:
+        width_list[16] += 1
+    elif i < 3600:
+        width_list[17] += 1
+
+
+export_data_insert.append(['CAP-DIAMETER'])
+export_data_insert.append(diameter_list)
+export_data_insert.append(['STEM-HEIGHT'])
+export_data_insert.append(height_list)
+export_data_insert.append(['STEM-WIDTH'])
+export_data_insert.append(width_list)
+
+with open(export_data, 'w', newline='') as file:
+    writer = csv.writer(file, delimiter=';')
+
+    for item in export_data_insert:
+        writer.writerow(item)
+
+print(f"Vorgang erfolgreich abgeschlossen!")
