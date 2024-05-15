@@ -4,6 +4,7 @@ Meine ersten Funktionen und Skripte:
 - CSV-Datei auslesen - Datensatz anfügen
 - Ceasar-Verschlüsselung
 - DataScience
+    - Mushrooms
     - Netflix
 - Dezimal zu Binär und Hexa
 - Edabit Stuff:
