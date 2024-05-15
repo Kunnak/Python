@@ -5,7 +5,7 @@ DataScience:
 - Netflix - Data
 - Netflix - Statistics
 
-# Skripte
+# Scripts
 Meine ersten Funktionen und Skripte:
 - Buchstaben zählen
 - CSV-Datei auslesen - Datensatz anfügen
