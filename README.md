@@ -1,7 +1,7 @@
 # Files
 DataScience:
-- Mushrooms - Data
-- Mushrooms - Statistics
+- Mushroom - Data
+- Mushroom - Statistics
 - Netflix - Data
 
 # Skripte
