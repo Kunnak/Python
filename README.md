@@ -3,6 +3,7 @@ DataScience:
 - Mushroom - Data
 - Mushroom - Statistics
 - Netflix - Data
+- Netflix - Statistics
 
 # Skripte
 Meine ersten Funktionen und Skripte:
