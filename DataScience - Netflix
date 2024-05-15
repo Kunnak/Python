@@ -1,4 +1,5 @@
 import csv
+import matplotlib.pyplot as plt
 
 # NETFLIX #
 
@@ -23,6 +24,10 @@ monate = ['January', 'February', 'March', 'April', 'May', 'June',
 cache = []
 export = []
 
+plot_gesamt = []
+plot_movies = []
+plot_series = []
+
 with (open(data, "r", encoding="utf-8", errors="ignore") as file):
     reader = csv.reader(file)
 
@@ -37,7 +42,7 @@ with (open(data, "r", encoding="utf-8", errors="ignore") as file):
     percent_movies_all = (percent_movies_all / counter_all) * 100
     percent_series_all = (percent_series_all / counter_all) * 100
 
-for year in range(2000, 2024, 1):
+for year in range(2011, 2023, 1):
     for month in monate:
         with (open(data, "r", encoding="utf-8", errors="ignore") as file):
             reader = csv.reader(file)
@@ -72,6 +77,9 @@ for year in range(2000, 2024, 1):
             cache.append(counter_movies)
             cache.append(counter_series)
 
+            plot_gesamt.append(counter_month)
+            plot_movies.append(counter_movies)
+            plot_series.append(counter_series)
             export.append(cache)
 
             cache = []
@@ -79,7 +87,7 @@ for year in range(2000, 2024, 1):
         counter_month, counter_series, counter_movies, percent_series, percent_movies = 0, 0, 0, 0, 0
 
 with open(export_data, 'w', newline='') as file:
-    writer = csv.writer(file)
+    writer = csv.writer(file, delimiter=';')
 
     backup_movies = 0
     backup_series = 0
@@ -99,3 +107,11 @@ print(f"\nInsgesamt wurden {counter_all} Datensätze durchsucht,\n"
       f"{backup_movies} Filme und {backup_series} Serien!\n"
       f"{round(percent_movies_all, 2)}% sind Filme\n"
       f"{round(percent_series_all, 2)}% sind Serien!")
+
+
+plt.plot(plot_gesamt)
+plt.plot(plot_movies)
+plt.plot(plot_series)
+plt.title('Mein Plot')
+
+plt.show()
