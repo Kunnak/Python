@@ -33,7 +33,7 @@ platform_counts = {
     'xone': 0
 }
 
-# EXTRACT PLATFORM #
+# KONSOLEN ZÄHLEN #
 with open(data, 'r') as file:
     reader = csv.reader(file)
     next(reader)
@@ -44,6 +44,7 @@ with open(data, 'r') as file:
         if platf0rm in platform_counts:
             platform_counts[platf0rm] += 1
 
+# EXPORT DATA #
 with open(export, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=';')
     writer.writerow(platform_counts.values())
