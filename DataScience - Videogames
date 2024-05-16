@@ -1,137 +1,56 @@
 import csv
 
+# DATA #
 data = 'videogames.csv'
-export = 'stats.csv'
+export = 'platforms.csv'
 
+# COUNTER #
 c_all = 0
-
-c_3ds, c_ds, c_gba, c_gc, c_gen, c_n64, c_nes, c_ng, c_pc = 0, 0, 0, 0, 0, 0, 0, 0, 0
-c_ps, c_ps2, c_ps3, c_ps4, c_psp, c_psv, c_sat, c_scd, c_snes = 0, 0, 0, 0, 0, 0, 0, 0, 0
-c_tg16, c_ws, c_wii, c_wiiu, c_x360, c_xb, c_xone = 0, 0, 0, 0, 0, 0, 0
-c_other = 0
-
-c_genre, c_publisher = [], []
-
+c_genre, c_publisher = 0, 0
 c_na_sales, c_eu_sales, c_jp_sales, c_other_sales, c_global_sales = 0, 0, 0, 0, 0
 
-cache = []
+# MAPPING #
+platform_counts = {
+    '3ds': 0,
+    'ds': 0,
+    'gba': 0,
+    'gc': 0,
+    'gen': 0,
+    'n64': 0,
+    'nes': 0,
+    'ng': 0,
+    'pc': 0,
+    'ps': 0,
+    'ps2': 0,
+    'ps3': 0,
+    'ps4': 0,
+    'psp': 0,
+    'psv': 0,
+    'sat': 0,
+    'scd': 0,
+    'snes': 0,
+    'tg16': 0,
+    'ws': 0,
+    'wii': 0,
+    'wiiu': 0,
+    'x360': 0,
+    'xb': 0,
+    'xone': 0
+}
 
+# EXTRACT PLATFORM #
 with open(data, 'r') as file:
-
     reader = csv.reader(file)
-    for data in reader:
+    next(reader)
 
-        if c_all == 0:
-            c_all += 1
-            continue
+    for row in reader:
+        platf0rm = row[2].lower()
 
-        if data[2].lower() == '3ds':
-            c_3ds += 1
-        elif data[2].lower() == 'ds':
-            c_ds += 1
-        elif data[2].lower() == 'gba':
-            c_gba += 1
-        elif data[2].lower() == 'gc':
-            c_gc += 1
-        elif data[2].lower() == 'gen':
-            c_gen += 1
-        elif data[2].lower() == 'n64':
-            c_n64 += 1
-        elif data[2].lower() == 'nes':
-            c_nes += 1
-        elif data[2].lower() == 'ng':
-            c_ng += 1
-        elif data[2].lower() == 'pc':
-            c_pc += 1
-        elif data[2].lower() == 'ps':
-            c_ps += 1
-        elif data[2].lower() == 'ps2':
-            c_ps2 += 1
-        elif data[2].lower() == 'ps3':
-            c_ps3 += 1
-        elif data[2].lower() == 'ps4':
-            c_ps4 += 1
-        elif data[2].lower() == 'psp':
-            c_psp += 1
-        elif data[2].lower() == 'psv':
-            c_psv += 1
-        elif data[2].lower() == 'sat':
-            c_sat += 1
-        elif data[2].lower() == 'scd':
-            c_scd += 1
-        elif data[2].lower() == 'snes':
-            c_snes += 1
-        elif data[2].lower() == 'tg16':
-            c_tg16 += 1
-        elif data[2].lower() == 'ws':
-            c_ws += 1
-        elif data[2].lower() == 'wii':
-            c_wii += 1
-        elif data[2].lower() == 'wiiu':
-            c_wiiu += 1
-        elif data[2].lower() == 'x360':
-            c_x360 += 1
-        elif data[2].lower() == 'xb':
-            c_xb += 1
-        elif data[2].lower() == 'xone':
-            c_xone += 1
-        else:
-            c_other += 1
-
-print(f"3DS: {c_3ds}\n"
-      f"DS: {c_ds}\n"
-      f"GBA: {c_gba}\n"
-      f"GC: {c_gc}\n"
-      f"GEN: {c_gen}\n"
-      f"N64: {c_n64}\n"
-      f"NES: {c_nes}\n"
-      f"NG: {c_ng}\n"
-      f"PC: {c_pc}\n"
-      f"PS: {c_ps}\n"
-      f"PS2: {c_ps2}\n"
-      f"PS3: {c_ps3}\n"
-      f"PS4: {c_ps4}\n"
-      f"PSP: {c_psp}\n"
-      f"PSV: {c_psv}\n"
-      f"SAT: {c_sat}\n"
-      f"SCD: {c_scd}\n"
-      f"SNES: {c_snes}\n"
-      f"TG16: {c_tg16}\n"
-      f"WS: {c_ws}\n"
-      f"WII: {c_wii}\n"
-      f"WIIU: {c_wiiu}\n"
-      f"X360: {c_x360}\n"
-      f"XB: {c_xb}\n"
-      f"XONE: {c_xone}\n")
-
-cache.append(c_3ds)
-cache.append(c_ds)
-cache.append(c_gba)
-cache.append(c_gc)
-cache.append(c_gen)
-cache.append(c_n64)
-cache.append(c_nes)
-cache.append(c_ng)
-cache.append(c_pc)
-cache.append(c_ps)
-cache.append(c_ps2)
-cache.append(c_ps3)
-cache.append(c_ps4)
-cache.append(c_psp)
-cache.append(c_psv)
-cache.append(c_sat)
-cache.append(c_scd)
-cache.append(c_snes)
-cache.append(c_tg16)
-cache.append(c_ws)
-cache.append(c_wii)
-cache.append(c_wiiu)
-cache.append(c_x360)
-cache.append(c_xb)
-cache.append(c_xone)
+        if platf0rm in platform_counts:
+            platform_counts[platf0rm] += 1
 
 with open(export, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=';')
 
-    for i in cache:
-        writer.writerow([i])
+    for count in platform_counts.values():
+        writer.writerow(count)
