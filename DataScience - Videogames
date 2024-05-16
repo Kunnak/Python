@@ -1,50 +1,18 @@
 import csv
-
-# DATA #
 data = 'videogames.csv'
 export = 'platforms.csv'
-
-# MAPPING #
 platform_counts = {
-    '3ds': 0,
-    'ds': 0,
-    'gba': 0,
-    'gc': 0,
-    'gen': 0,
-    'n64': 0,
-    'nes': 0,
-    'ng': 0,
-    'pc': 0,
-    'ps': 0,
-    'ps2': 0,
-    'ps3': 0,
-    'ps4': 0,
-    'psp': 0,
-    'psv': 0,
-    'sat': 0,
-    'scd': 0,
-    'snes': 0,
-    'tg16': 0,
-    'ws': 0,
-    'wii': 0,
-    'wiiu': 0,
-    'x360': 0,
-    'xb': 0,
-    'xone': 0
+    '3ds': 0, 'ds': 0, 'gba': 0, 'gc': 0, 'gen': 0, 'n64': 0, 'nes': 0, 'ng': 0, 'pc': 0, 'ps': 0,
+    'ps2': 0, 'ps3': 0, 'ps4': 0, 'psp': 0, 'psv': 0, 'sat': 0, 'scd': 0, 'snes': 0, 'tg16': 0, 'ws': 0,
+    'wii': 0, 'wiiu': 0, 'x360': 0, 'xb': 0, 'xone': 0
 }
-
-# KONSOLEN ZÄHLEN #
 with open(data, 'r') as file:
     reader = csv.reader(file)
     next(reader)
-
     for row in reader:
         platf0rm = row[2].lower()
-
         if platf0rm in platform_counts:
             platform_counts[platf0rm] += 1
-
-# EXPORT DATA #
 with open(export, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=';')
     writer.writerow(platform_counts.values())
