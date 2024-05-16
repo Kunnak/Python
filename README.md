@@ -13,6 +13,7 @@ Meine ersten Funktionen und Skripte:
 - DataScience
     - Mushrooms
     - Netflix
+    - Videospiele
 - Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Skripte verschiedener Art
