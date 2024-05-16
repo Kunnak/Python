@@ -4,11 +4,6 @@ import csv
 data = 'videogames.csv'
 export = 'platforms.csv'
 
-# COUNTER #
-c_all = 0
-c_genre, c_publisher = 0, 0
-c_na_sales, c_eu_sales, c_jp_sales, c_other_sales, c_global_sales = 0, 0, 0, 0, 0
-
 # MAPPING #
 platform_counts = {
     '3ds': 0,
@@ -51,6 +46,4 @@ with open(data, 'r') as file:
 
 with open(export, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=';')
-
-    for count in platform_counts.values():
-        writer.writerow(count)
+    writer.writerow(platform_counts.values())
