@@ -1,18 +1,41 @@
 import csv
+
 data = 'videogames.csv'
-export = 'platforms.csv'
+export = 'stats.csv'
+
 platform_counts = {
     '3ds': 0, 'ds': 0, 'gba': 0, 'gc': 0, 'gen': 0, 'n64': 0, 'nes': 0, 'ng': 0, 'pc': 0, 'ps': 0,
     'ps2': 0, 'ps3': 0, 'ps4': 0, 'psp': 0, 'psv': 0, 'sat': 0, 'scd': 0, 'snes': 0, 'tg16': 0, 'ws': 0,
     'wii': 0, 'wiiu': 0, 'x360': 0, 'xb': 0, 'xone': 0
 }
+
+publisher_counts = {}
+
 with open(data, 'r') as file:
     reader = csv.reader(file)
     next(reader)
     for row in reader:
-        platf0rm = row[2].lower()
-        if platf0rm in platform_counts:
-            platform_counts[platf0rm] += 1
+        platform = row[2].lower()
+        publisher = row[5]
+
+        if platform in platform_counts:
+            platform_counts[platform] += 1
+
+        if publisher in publisher_counts:
+            publisher_counts[publisher] += 1
+        else:
+            publisher_counts[publisher] = 1
+
 with open(export, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=';')
+    writer.writerow(platform_counts.keys())
     writer.writerow(platform_counts.values())
+
+filtered_publishers = [name for name, count in publisher_counts.items() if count > 500]
+print(filtered_publishers)
+
+with open(export, 'a', newline='') as file:
+    writer = csv.writer(file, delimiter=';')
+    writer.writerow(["Publisher", "Count"])
+    for publisher in filtered_publishers:
+        writer.writerow([publisher, publisher_counts[publisher]])
