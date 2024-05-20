@@ -7,7 +7,7 @@ def main():
     check_2 = True
     check_3 = True
     ask_3 = ''
-    
+
     while running:
         if check_1:
             ask_1 = input("Wollen Sie Daten extrahieren ? [ Y | N ] :  ")
@@ -18,14 +18,14 @@ def main():
             else:
                 check_1 = False
                 check_2 = False
-                
+
         if check_2:
             ask_2 = input("Wollen Sie eine Datei auslesen ? [ Y | N ] :  ")
             if ask_2.lower() == 'n':
                 exit()
             else:
                 check_2 = False
-                
+
         while check_3:
             ask_3 = input(f'Welche Datei wollen Sie auslesen?\n'
                           f'- Get-Computerinfo          [CI]\n'
@@ -36,7 +36,7 @@ def main():
                           f'- All                       [ALL]\n'
                           f'\n'
                           f'Eingabe:  ')
-            
+
             if (ask_3.lower() == 'ci'
                     or ask_3.lower() == 'ipc'
                     or ask_3.lower() == 'nipa'
@@ -44,9 +44,9 @@ def main():
                     or ask_3.lower() == 'ntcp'
                     or ask_3.lower() == 'all'):
                 check_3 = False
-                
+
         check_3 = True
-        
+
         ask_4 = input("Wonach möchten Sie Suchen ? :  ")
         if ask_3.lower() == 'ci':
             search(ask_4, 'Get-ComputerInfo.txt')
@@ -60,7 +60,7 @@ def main():
             search(ask_4, 'Get-NetTCPConnection.txt')
         elif ask_3.lower() == 'all':
             search(ask_4, 'ALL.txt')
-            
+
         ask_5 = input("Beenden ? [ Y | N ] :  ")
         if ask_5.lower() == 'y':
             running = False
@@ -101,22 +101,15 @@ def xtract():
 
 
 def search(search_word, file):
-    counter1 = 0
-    counter2 = 0
+    with open(file, 'r', newline='') as file:
+        unique_lines = set()
+        for line in file:
+            if search_word.lower() in line.lower():
+                unique_lines.add(line.strip())
 
-    with open(file, 'r') as file:
-        for i in file:
-            for _ in i:
-                counter1 += 1
-                
-            if search_word.lower() in i.lower():
-                for _ in i:
-                    counter2 += 1
-                    
-                print(i)
-                
-    print(f"Insgesamt besitzt das Dokument {counter1} Zeichen! \n"
-          f"{counter2} davon sind in der Suche!")
+        for unique_line in unique_lines:
+            print(unique_line)
+    print('\n')
 
 
 main()
