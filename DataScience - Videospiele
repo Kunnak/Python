@@ -1,41 +1,96 @@
+""" 
+------------------------------------------------------------------------------------------------------------------------
+    Programm, das die Region, den Hersteller und eine Verkaufsspanne abfragt.
+    Anschließend werden die Datensätze innerhalb der Datei durchsucht und bei erfolgreicher Verarbeitung
+    ein Balkendiagramm erzeugt, welches die Spiele anzeigt mit den Verkaufszahlen innerhalb der
+    ausgewählten Region!
+------------------------------------------------------------------------------------------------------------------------    
+"""
+
 import csv
+import matplotlib.pyplot as plt
 
 data = 'videogames.csv'
-export = 'stats.csv'
 
-platform_counts = {
-    '3ds': 0, 'ds': 0, 'gba': 0, 'gc': 0, 'gen': 0, 'n64': 0, 'nes': 0, 'ng': 0, 'pc': 0, 'ps': 0,
-    'ps2': 0, 'ps3': 0, 'ps4': 0, 'psp': 0, 'psv': 0, 'sat': 0, 'scd': 0, 'snes': 0, 'tg16': 0, 'ws': 0,
-    'wii': 0, 'wiiu': 0, 'x360': 0, 'xb': 0, 'xone': 0
+regionen = {
+    'nordamerika': [],
+    'europa': [],
+    'japan': [],
+    'others': [],
+    'global': []
 }
+spielnamen = []
+publisher = []
 
-publisher_counts = {}
+
+def extract(file, publisher, sales1, sales2):
+    global regionen
+    with open(file, 'r') as doc:
+        reader = csv.reader(doc)
+        next(reader)
+        for row in reader:
+            if publisher.lower() in row[5].lower() and sales1 < float(row[6]) < sales2:
+                spielnamen.append(row[1])
+                regionen['nordamerika'].append(float(row[6]))
+                regionen['europa'].append(float(row[7]))
+                regionen['japan'].append(float(row[8]))
+                regionen['others'].append(float(row[9]))
+                regionen['global'].append(float(row[10]))
+
+
+def get_parameters():
+    while True:
+        search_region = input("Region: ").lower()
+        matched_region = None
+        for region in regionen:
+            if search_region in region:
+                matched_region = region
+                break
+        if matched_region:
+            search_region = matched_region
+            break
+        else:
+            print("Ungültige Region. Bitte erneut eingeben.")
+
+    search_publisher = input("Hersteller: ")
+    search_low = input("Verkaufszahlen MIN: ")
+    search_high = input("Verkaufszahlen MAX: ")
+
+    return search_region, search_publisher, search_low, search_high
+
 
 with open(data, 'r') as file:
     reader = csv.reader(file)
-    next(reader)
-    for row in reader:
-        platform = row[2].lower()
-        publisher = row[5]
 
-        if platform in platform_counts:
-            platform_counts[platform] += 1
+    for i in reader:
+        publisher.append(i[5])
 
-        if publisher in publisher_counts:
-            publisher_counts[publisher] += 1
-        else:
-            publisher_counts[publisher] = 1
+unique_publishers = sorted(set(publisher))
 
-with open(export, 'w', newline='') as file:
-    writer = csv.writer(file, delimiter=';')
-    writer.writerow(platform_counts.keys())
-    writer.writerow(platform_counts.values())
+columns = 10
 
-filtered_publishers = [name for name, count in publisher_counts.items() if count > 500]
-print(filtered_publishers)
+publishers_per_column = len(unique_publishers) // columns
+remainder = len(unique_publishers) % columns
 
-with open(export, 'a', newline='') as file:
-    writer = csv.writer(file, delimiter=';')
-    writer.writerow(["Publisher", "Count"])
-    for publisher in filtered_publishers:
-        writer.writerow([publisher, publisher_counts[publisher]])
+publisher_columns = []
+start_index = 0
+for i in range(columns):
+    end_index = start_index + publishers_per_column + (1 if i < remainder else 0)
+    publisher_columns.append(unique_publishers[start_index:end_index])
+    start_index = end_index
+
+for col in zip(*publisher_columns):
+    print('|\t|'.join(col))
+
+print("\n")
+
+search_region, search_publisher, search_low, search_high = get_parameters()
+extract(data, search_publisher, float(search_low), float(search_high))
+plt.figure(figsize=(45, 12))
+plt.bar(spielnamen, regionen[search_region.lower()], color='blue')
+plt.title(f'Verkaufszahlen in {search_region}')
+plt.xlabel('Spiele')
+plt.ylabel('Verkaufszahlen in Millionen')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
