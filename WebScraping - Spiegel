@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.spiegel.de/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+div_elements = soup.find_all()
+
+headlines = set()
+for div in div_elements:
+    span = div.find('span', 'align-middle')
+    if span:
+        headline = span.get_text().strip()
+        headlines.add(headline)
+
+for headline in headlines:
+    print(headline)
+    
