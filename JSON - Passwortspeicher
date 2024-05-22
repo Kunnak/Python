@@ -1,0 +1,21 @@
+import json
+
+passw0rds = "passwords.json"
+
+with open(passw0rds, "r") as file:
+    passwords = json.load(file)
+
+quest1 = input("Add data ? : ")
+
+if quest1.lower() in "yesja":
+    website = input("Website: ")
+    benutzer = input("Benutzer: ")
+    password = input("Password: ")
+    auth = input("Authentifikation [0|1]: ")
+
+    passwords["data"].append({"website": website, "benutzer": benutzer, "password": password, "auth": auth})
+
+    with open(passw0rds, "a") as file:
+        json.dump(passw0rds, file, indent=4)
+
+print(f"Done!")
