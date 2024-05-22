@@ -55,7 +55,8 @@ Meine ersten Funktionen und Skripte:
 - Get-Computer-  | Netzwerk Informationen
 - Idle-Game
 - Input doppelt ausgeben (Test -> TTeesstt)
-- JSON - Passwortspeicher
+- JSON 
+    - Passwortspeicher
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
