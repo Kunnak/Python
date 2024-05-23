@@ -1,3 +1,4 @@
+"""
 import requests
 from bs4 import BeautifulSoup
 
@@ -15,4 +16,46 @@ for div in div_elements:
 
 for headline in headlines:
     print(headline)
+
+
+import requests
+from bs4 import BeautifulSoup
+import json
+
+url = "https://www.spiegel.de/"
+response = requests.get(url)
+html_content = response.text
+
+with open('html_content.json', 'w', encoding='utf-8') as json_file:
+    json.dump(html_content, json_file, ensure_ascii=False, indent=4)
+
+print("Der komplette HTML-Quellcode wurde in 'html_content.json' gespeichert.")
+
+soup = BeautifulSoup(response.text, 'html.parser')
+
+div_elements = soup.find_all()
+
+headlines = set()
+
+for div in div_elements:
+    span = div.find('span', class_="hover:opacity-moderate focus:opacity-moderate")
+    if span:
+        headline = span.get_text().strip()
+        headlines.add(headline)
+
+headlines_list = list(headlines)
+
+data = {
+    "headlines": headlines_list
+}
+
+with open('headlines.json', 'w', encoding='utf-8') as json_file:
+    json.dump(data, json_file, ensure_ascii=False, indent=4)
+
+print("Headlines wurden in 'headlines.json' gespeichert.")
+
+for i in data['headlines']:
+    print(i)
+
     
+"""
