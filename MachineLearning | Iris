@@ -1,0 +1,52 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+
+# Iris-Datensatz laden
+iris = load_iris()
+
+# Features (Daten) und Labels (Zielvariablen) extrahieren
+x = iris.data
+y = iris.target
+print(f"\nFeature Namen: {iris.feature_names}\n"
+      f"Target Namen: {iris.target_names}\n"
+      f"Form der Daten: {x.shape}")
+
+# Daten aufteilen: 80% Training, 20% Test
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=69)
+print("Form der Trainingsdaten:", x_train.shape)
+print("Form der Testdaten:", x_test.shape)
+
+# StandardScaler initialisieren
+scaler = StandardScaler()
+
+# Nur die Trainingsdaten anpassen und transformieren
+x_train = scaler.fit_transform(x_train)
+
+# Die Testdaten nur transformieren (nicht anpassen!)
+x_test = scaler.transform(x_test)
+
+# KNN-Klassifikator initialisieren
+knn = KNeighborsClassifier(n_neighbors=3)
+
+# Modell mit den Trainingsdaten trainieren
+knn.fit(x_train, y_train)
+
+# Vorhersagen für die Testdaten machen
+y_predict = knn.predict(x_test)
+
+# Genauigkeit des Modells berechnen
+accuracy = accuracy_score(y_test, y_predict)
+print("\nAccuracy:", accuracy)
+
+# Konfusionsmatrix und Klassifikationsbericht anzeigen
+conf_matrix = confusion_matrix(y_test, y_predict)
+class_report = classification_report(y_test, y_predict, target_names=iris.target_names)
+
+print("Confusion Matrix:\n", conf_matrix)
+print("Classification Report:\n", class_report)
