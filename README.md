@@ -56,6 +56,8 @@ Meine ersten Funktionen und Skripte:
 - Input doppelt ausgeben (Test -> TTeesstt)
 - JSON 
     - Passwortspeicher
+- Machine Learning
+    - Iris
 - PasswortManager
 - PyGame Tutorial  -  [https://www.youtube.com/watch?v=AY9MnQ4x3zk]
 - String Ver- Entschlüsseln
