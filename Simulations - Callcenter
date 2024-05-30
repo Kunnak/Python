@@ -1,0 +1,60 @@
+import simpy
+import random
+import csv
+
+data = 'data.csv'
+anzahl_tage = 100000
+anzahl_customer = 1000
+anzahl_agents = 10
+
+
+def run_simulation():
+    global anzahl_customer, anzahl_agents
+    local_env = simpy.Environment()
+    local_call_queue = [i for i in range(1, anzahl_customer)]
+
+    class CallCenterAgent:
+        def __init__(self, env, name, annahmezeit_min, bearbeitungszeit_min, nacharbeit_min):
+            self.env = env
+            self.name = name
+            self.annahmezeit_min = annahmezeit_min
+            self.bearbeitungszeit_min = bearbeitungszeit_min
+            self.nacharbeit_min = nacharbeit_min
+            self.action = env.process(self.workday())
+
+        def handle_call(self, customer):
+            yield self.env.timeout(self.annahmezeit_min)
+            # print(f'{self.name} nimmt den Anruf von Kunde {customer} an um {round(self.env.now, 2)} Minuten')
+            yield self.env.timeout(self.bearbeitungszeit_min)
+            # print(f'{self.name} beendet Bearbeitung von Kunde {customer} um {round(self.env.now, 2)} Minuten')
+            yield self.env.timeout(self.nacharbeit_min)
+            # print(f'{self.name} beendet Nacharbeit von Kunde {customer} um {round(self.env.now, 2)} Minuten')
+
+        def workday(self):
+            while True:
+                yield self.env.timeout(1)
+
+                if local_call_queue:
+                    customer = local_call_queue.pop(0)
+                    yield self.env.process(self.handle_call(customer))
+
+    agenten = []
+    for agent_number in range(1, anzahl_agents + 1):
+        agent = CallCenterAgent(local_env, f'Agent {agent_number}',
+                                annahmezeit_min=random.randint(1, 3),
+                                bearbeitungszeit_min=random.randint(2, 15),
+                                nacharbeit_min=random.randint(1, 5))
+        agenten.append(agent)
+
+    simulation_duration = 8 * 60
+    local_env.run(until=simulation_duration)
+
+    return local_call_queue[0] if local_call_queue else None
+
+
+with open(data, 'w', newline='') as file:
+    writer = csv.writer(file)
+    for i in range(1, anzahl_tage + 1):
+        first_call = run_simulation()
+        writer.writerow([first_call if first_call is not None else 'Keine Anrufe übrig'])
+        print(f'Tag {i} von {anzahl_tage} abgeschlossen!')
