@@ -1,0 +1,50 @@
+import pyodbc
+
+# Verbindungsstring zur Access-Datenbank
+conn_str = (
+    r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+    r'DBQ=D:\PythonProjekte\Stuff\DB Spiele\Stuff.accdb;'
+)
+
+counter_anzahl = 0
+counter_speicher_c = 0
+counter_speicher_d = 0
+counter_speicher_all = 0
+
+try:
+    connection = pyodbc.connect(conn_str)
+    cursor = connection.cursor()
+
+    select = "SELECT * FROM Spiele ORDER BY ID"
+    cursor.execute(select)
+
+    data = [item for item in cursor.fetchall()]
+
+    for field in data:
+        counter_anzahl += 1
+        counter_speicher_all += field[4]
+
+        if field[3] == 'C:':
+            counter_speicher_c += field[4]
+            print(f"ID:                 {counter_anzahl}\n"
+                  f"Name:               {field[1]}\n"
+                  f"Genre:              {field[2]}\n"
+                  f"Speicherort:        {field[3]}\n"
+                  f"Speichergröße:      {field[4]} GB\n"
+                  f"-----------------------------------------------")
+
+        if field[3] == 'D:':
+            counter_speicher_d += field[4]
+            print(f"ID:                 {counter_anzahl}\n"
+                  f"Name:               {field[1]}\n"
+                  f"Genre:              {field[2]}\n"
+                  f"Speicherort:        {field[3]}\n"
+                  f"Speichergröße:      {field[4]} GB\n"
+                  f"-----------------------------------------------")
+
+except pyodbc.Error as e:
+    print("Fehler:", e)
+
+print(f"\nGenutzter Speicher auf C: :      {counter_speicher_c} GB")
+print(f"Genutzter Speicher auf D: :      {counter_speicher_d} GB")
+print(f"Insgesamt genutzter Speicher:    {counter_speicher_all} GB")
