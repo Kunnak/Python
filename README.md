@@ -14,7 +14,7 @@ Meine ersten Funktionen und Skripte:
     - Mushrooms
     - Netflix
     - Videospiele
-- Datenbanken - Spiele
+- Datenbanken - Spielgrößen
 - Dezimal zu Binär und Hexa
 - Edabit Stuff:
     - Listen sortieren
