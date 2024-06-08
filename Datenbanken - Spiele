@@ -1,50 +1,70 @@
+import csv
+
 import pyodbc
 
 # Verbindungsstring zur Access-Datenbank
 conn_str = (
     r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-    r'DBQ=D:\PythonProjekte\Stuff\DB Spiele\Stuff.accdb;'
+    r'DBQ=D:\PythonProjekte\Stuff\DB Spiele\Databanks.accdb;'
 )
 
 counter_anzahl = 0
 counter_speicher_c = 0
 counter_speicher_d = 0
 counter_speicher_all = 0
+speicher = 0
+
+data_list = []
+output = []
 
 try:
     connection = pyodbc.connect(conn_str)
     cursor = connection.cursor()
 
-    select = "SELECT * FROM Spiele ORDER BY ID"
+    select = "SELECT * FROM Gamesize ORDER BY ID"
     cursor.execute(select)
 
     data = [item for item in cursor.fetchall()]
 
     for field in data:
         counter_anzahl += 1
-        counter_speicher_all += field[4]
+        counter_speicher_all += field[3]
+
+        data_string = [field[1], field[2], field[3]]
+        data_list.append(data_string)
+        output.append(data_string)
 
         if field[3] == 'C:':
-            counter_speicher_c += field[4]
-            print(f"ID:                 {counter_anzahl}\n"
-                  f"Name:               {field[1]}\n"
-                  f"Genre:              {field[2]}\n"
-                  f"Speicherort:        {field[3]}\n"
-                  f"Speichergröße:      {field[4]} GB\n"
-                  f"-----------------------------------------------")
+            counter_speicher_c += field[3]
 
         if field[3] == 'D:':
-            counter_speicher_d += field[4]
-            print(f"ID:                 {counter_anzahl}\n"
-                  f"Name:               {field[1]}\n"
-                  f"Genre:              {field[2]}\n"
-                  f"Speicherort:        {field[3]}\n"
-                  f"Speichergröße:      {field[4]} GB\n"
-                  f"-----------------------------------------------")
+            counter_speicher_d += field[3]
 
 except pyodbc.Error as e:
     print("Fehler:", e)
 
-print(f"\nGenutzter Speicher auf C: :      {counter_speicher_c} GB")
+csv_data = 'speicher_pro_spiel.csv'
+
+with open(csv_data, 'w', newline='') as file:
+    writer = csv.writer(file, delimiter=';')
+
+    for i in output:
+        print(f"---------------------------")
+        print(f"{i[2]}")
+        speicher = str(i[2]).replace(".", ",")
+        ort = i[1]
+        name = i[0]
+        liste = [name, ort, speicher]
+        writer.writerow(liste)
+
+
+"""print(f"\nGenutzter Speicher auf C: :      {counter_speicher_c} GB")
 print(f"Genutzter Speicher auf D: :      {counter_speicher_d} GB")
-print(f"Insgesamt genutzter Speicher:    {counter_speicher_all} GB")
+print(f"Insgesamt genutzter Speicher:    {counter_speicher_all} GB")"""
+
+"""print(f"ID:                 {counter_anzahl}\n"
+      f"Name:               {field[1]}\n"
+      f"Genre:              {field[2]}\n"
+      f"Speicherort:        {field[3]}\n"
+      f"Speichergröße:      {field[4]} GB\n"
+      f"-----------------------------------------------")"""
