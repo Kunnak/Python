@@ -21,7 +21,6 @@ def encode_morse(text):
             cache.append(char_to_dots[sign])
         else:
             continue
-
     return ''.join(' ' + i for i in cache)
 
 
