@@ -64,5 +64,6 @@ Meine ersten Funktionen und Skripte:
 - Simulations
     - Callcenter
 - String Ver- Entschlüsseln
+- Text to Morse Code
 - WebScraping
     - Spiegel.de
