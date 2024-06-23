@@ -51,8 +51,9 @@ class GUI(App):
         show_own_tasks.bind(on_press=self.show_tasks)
         self.layout.add_widget(show_own_tasks)
 
-        self.add_task = Button(text='Aufgabe hinzufügen')
-        self.layout.add_widget(self.add_task)
+        add_task = Button(text='Aufgabe hinzufügen')
+        add_task.bind(on_press=self.get_task_info)
+        self.layout.add_widget(add_task)
 
         self.delete_task = Button(text='Aufgabe entfernen')
         self.layout.add_widget(self.delete_task)
@@ -91,15 +92,6 @@ class GUI(App):
         back.bind(on_press=self.show_register_login_menu)
         self.layout.add_widget(back)
 
-    def process_register(self, instance):
-        username = self.input_username.text
-        password = self.password.text
-        name = self.input_name.text
-        email = self.email.text
-        functions.create_user(username, password, name, email)
-        functions.log_this(f"User {username} wurde erstellt")
-        self.show_login()
-
     def show_login(self, instance=None):
         self.layout.clear_widgets()
         self.layout.add_widget(Label(text='Anmelden'))
@@ -119,6 +111,15 @@ class GUI(App):
         back = Button(text='Zurück')
         back.bind(on_press=self.show_register_login_menu)
         self.layout.add_widget(back)
+
+    def process_register(self, instance):
+        username = self.input_username.text
+        password = self.password.text
+        name = self.input_name.text
+        email = self.email.text
+        functions.create_user(username, password, name, email)
+        functions.log_this(f"User {username} wurde erstellt")
+        self.show_login()
 
     def process_login(self, instance):
         username = self.input_username.text
@@ -175,6 +176,49 @@ class GUI(App):
             back.bind(on_press=self.show_main_menu_user)
         self.layout.add_widget(back)
 
+    def get_task_info(self, instance):
+        self.layout.clear_widgets()
+        self.layout.add_widget(Label(text='Aufgabe hinzufügen'))
+
+        self.layout.add_widget(Label(text='Name'))
+        self.task_name = TextInput()
+        self.layout.add_widget(self.task_name)
+
+        self.layout.add_widget(Label(text='Beschreibung'))
+        self.task_description = TextInput()
+        self.layout.add_widget(self.task_description)
+
+        self.layout.add_widget(Label(text='Zeitlimit'))
+        self.task_timelimit = TextInput()
+        self.layout.add_widget(self.task_timelimit)
+
+        self.layout.add_widget(Label(text='Wichtigkeit'))
+        self.task_status = TextInput()
+        self.layout.add_widget(self.task_status)
+
+        task = [self.task_name, self.task_description, self.task_timelimit, self.task_status]
+
+        save = Button(text='Speichern')
+        save.bind(on_press=self.add_task_to_user)
+        self.layout.add_widget(save)
+
+    def add_task_to_user(self, instance):
+        name = self.task_name.text
+        description = self.task_description.text
+        timelimit = self.task_timelimit.text
+        status = self.task_status.text
+        username = self.input_username.text
+        users = functions.load_users()
+
+        for user in users:
+            if user['username'] == username:
+                user_obj = functions.User.load_existing_user(user)
+                task_obj = functions.ToDo(name, description, timelimit, status)
+                user_obj.add_task(task_obj)
+                print(f"Aufgabe erfolgreich zugewiesen an {username}")
+                functions.log_this(f"Aufgabe [{name}] wurde zugewiesen an {username}")
+
+        self.show_main_menu_admin()
 
 if __name__ == '__main__':
     GUI().run()
