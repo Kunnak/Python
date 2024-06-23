@@ -16,28 +16,19 @@
                 "description": "Die Weltwirtschaft retten mit nem gutem Plan",
                 "zeitangabe": "2030",
                 "status": "10"
-            }
-        ]
-    },
-    {
-        "username": "BoeJiden",
-        "password": "6536c4b48d3cf8352d5dde811b9634cacbb2459cc019d768f696bc7ca058a105",
-        "name": "Joe Biden",
-        "email": "j.biden@whitehouse.com",
-        "tasks": [
+            },
             {
-                "task-name": "Wirtschaft retten",
-                "description": "Die Weltwirtschaft retten mit nem gutem Plan",
-                "zeitangabe": "2030",
-                "status": "10"
+                "task-name": "schlafen",
+                "description": "schlafen gehen",
+                "zeitangabe": "1:15Uhr",
+                "status": "9"
+            },
+            {
+                "task-name": "Hausaufgaben",
+                "description": "Mathe, Deutsch Englisch",
+                "zeitangabe": "Dienstag",
+                "status": "3"
             }
         ]
-    },
-    {
-        "username": "Karlo",
-        "password": "034c0f8ac5ab8ef39e1c25af63b4f8d40e9488ebb5ff03af3c583b4e4db2aa3d",
-        "name": "Karlo",
-        "email": "karlo@karlo.de",
-        "tasks": []
     }
 ]
