@@ -1,0 +1,293 @@
+[22.06.24 | 17:32:56]: Program started!
+[22.06.24 | 17:33:36]: Program started!
+[22.06.24 | 17:33:59]: User [Kunnak] wurde erstellt.
+[22.06.24 | 17:33:59]: Program closed!
+[22.06.24 | 17:34:05]: Program started!
+[22.06.24 | 17:34:15]: Program closed!
+[22.06.24 | 17:34:17]: Program started!
+[22.06.24 | 17:34:29]: Program closed!
+[22.06.24 | 17:35:16]: Program started!
+[22.06.24 | 17:35:58]: User [BoeJiden] wurde erstellt.
+[22.06.24 | 17:35:58]: Program closed!
+[22.06.24 | 17:36:01]: Program started!
+[22.06.24 | 17:36:19]: Program closed!
+[22.06.24 | 17:36:47]: Program started!
+[22.06.24 | 17:37:07]: Program closed!
+[22.06.24 | 17:40:42]: Program started!
+[22.06.24 | 17:44:52]: Program started!
+[22.06.24 | 17:46:28]: User [Django] wurde erstellt.
+[22.06.24 | 17:46:28]: Program closed!
+[22.06.24 | 17:49:22]: Program started!
+[22.06.24 | 17:50:41]: Program started!
+[22.06.24 | 17:51:14]: User [Hank] wurde erstellt.
+[22.06.24 | 17:51:14]: Program closed!
+[22.06.24 | 17:51:22]: Program started!
+[22.06.24 | 18:01:38]: Program started!
+[22.06.24 | 18:01:45]: Kunnak hat sich angemeldet![22.06.24 | 18:01:45]: Program closed!
+[22.06.24 | 18:02:33]: Program started!
+[22.06.24 | 18:02:45]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:02:45]: Program closed!
+[22.06.24 | 18:03:00]: Program started!
+[22.06.24 | 18:03:15]: Anmeldung fehlgeschlagen für User [Gandald]!
+[22.06.24 | 18:03:15]: Program closed!
+[22.06.24 | 18:03:18]: Program started!
+[22.06.24 | 18:03:34]: Anmeldung fehlgeschlagen für User [Gandalf]!
+[22.06.24 | 18:03:34]: Program closed!
+[22.06.24 | 18:04:05]: Program started!
+[22.06.24 | 18:04:25]: Anmeldung fehlgeschlagen - User [Gandalf]!
+[22.06.24 | 18:04:25]: Program closed!
+[22.06.24 | 18:06:21]: Program started!
+[22.06.24 | 18:06:30]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:06:30]: Program closed!
+[22.06.24 | 18:07:00]: Program started!
+[22.06.24 | 18:07:07]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:07:07]: Program closed!
+[22.06.24 | 18:40:36]: Program started!
+[22.06.24 | 18:40:45]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:41:01]: BoeJiden wurde das Passwort geändert!
+[22.06.24 | 18:41:01]: Program closed!
+[22.06.24 | 18:41:10]: Program started!
+[22.06.24 | 18:41:18]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:41:27]: BoeJiden# für Passwortänderung nicht gefunden!!
+[22.06.24 | 18:41:27]: Program closed!
+[22.06.24 | 18:41:29]: Program started!
+[22.06.24 | 18:42:00]: Program started!
+[22.06.24 | 18:42:07]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:42:24]: BoeJiden wurde das Passwort geändert!
+[22.06.24 | 18:42:24]: Program closed!
+[22.06.24 | 18:42:28]: Program started!
+[22.06.24 | 18:42:37]: Anmeldung fehlgeschlagen - User [BoeJiden]!
+[22.06.24 | 18:43:41]: Program started!
+[22.06.24 | 18:43:56]: Anmeldung fehlgeschlagen - User [BoeJiden]!
+[22.06.24 | 18:43:56]: Program closed!
+[22.06.24 | 18:45:02]: Program started!
+[22.06.24 | 18:45:11]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:45:27]: BoeJiden wurde das Passwort geändert!
+[22.06.24 | 18:45:27]: Program closed!
+[22.06.24 | 18:45:31]: Program started!
+[22.06.24 | 18:45:38]: BoeJiden hat sich angemeldet!
+[22.06.24 | 18:45:38]: Program closed!
+[22.06.24 | 18:47:32]: Program started!
+[22.06.24 | 18:47:45]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:48:07]: BoeJiden wurde das Passwort aktualisiert!
+[22.06.24 | 18:48:07]: Program closed!
+[22.06.24 | 18:53:05]: Program started!
+[22.06.24 | 18:53:16]: Anmeldung fehlgeschlagen - User [Kunnak]!
+[22.06.24 | 18:53:16]: Program closed!
+[22.06.24 | 18:53:21]: Program started!
+[22.06.24 | 18:53:28]: Kunnak hat sich angemeldet!
+[22.06.24 | 18:53:58]: Hank wurde das Passwort aktualisiert!
+[22.06.24 | 18:53:58]: Program closed!
+[22.06.24 | 18:54:24]: Program started!
+[22.06.24 | 18:54:31]: Anmeldung fehlgeschlagen - User []!
+[22.06.24 | 18:54:31]: Program closed!
+[22.06.24 | 18:54:55]: Program started!
+[22.06.24 | 18:54:58]: Anmeldung fehlgeschlagen - User []!
+[22.06.24 | 18:54:58]: Program closed!
+[22.06.24 | 20:31:26]: Program started!
+[22.06.24 | 20:50:11]: Program started!
+[22.06.24 | 20:58:10]: Program started!
+[22.06.24 | 20:58:53]: Program started!
+[22.06.24 | 21:50:44]: Program started!
+[22.06.24 | 21:52:21]: Program started!
+[22.06.24 | 21:52:32]: Kunnak hat sich angemeldet!
+[22.06.24 | 21:54:48]: BoeJiden wurde das Passwort aktualisiert!
+[22.06.24 | 21:54:48]: Program closed!
+[22.06.24 | 21:54:54]: Program started!
+[22.06.24 | 21:55:06]: Kunnak hat sich angemeldet!
+[22.06.24 | 21:59:40]: Program started!
+[22.06.24 | 21:59:50]: Anmeldung fehlgeschlagen - User [Kunnak]!
+[22.06.24 | 21:59:50]: Program closed!
+[22.06.24 | 21:59:54]: Program started!
+[22.06.24 | 22:00:02]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:03:47]: Program started!
+[22.06.24 | 22:03:55]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:04:21]: Aufgabe Kübra schreiben wurde zugewiesen an Kunnak!
+[22.06.24 | 22:04:21]: Program closed!
+[22.06.24 | 22:04:56]: Program started!
+[22.06.24 | 22:05:04]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:05:42]: Aufgabe Zimmer aufräumen wurde zugewiesen an Kunnak!
+[22.06.24 | 22:05:42]: Program closed!
+[22.06.24 | 22:12:24]: Program started!
+[22.06.24 | 22:12:33]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:12:52]: Program started!
+[22.06.24 | 22:13:00]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:13:14]: Aufgabe 'Kübra schreiben' wurde von Kunnak entfernt!
+[22.06.24 | 22:13:14]: Program closed!
+[22.06.24 | 22:22:47]: Program started!
+[22.06.24 | 22:23:00]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:23:00]: Program closed!
+[22.06.24 | 22:23:55]: Program started!
+[22.06.24 | 22:24:05]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:27:13]: Program started!
+[22.06.24 | 22:27:42]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:27:42]: Anmeldung fehlgeschlagen - User [BoeJiden]!
+[22.06.24 | 22:27:42]: Program closed!
+[22.06.24 | 22:28:23]: Program started!
+[22.06.24 | 22:29:26]: Program started!
+[22.06.24 | 22:30:03]: Program started!
+[22.06.24 | 22:30:13]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:30:16]: Program closed!
+[22.06.24 | 22:30:22]: Program started!
+[22.06.24 | 22:30:30]: Program started!
+[22.06.24 | 22:30:42]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:31:14]: Aufgabe Kübra schreiben wurde zugewiesen an BoeJiden!
+[22.06.24 | 22:31:14]: Program closed!
+[22.06.24 | 22:31:18]: Program started!
+[22.06.24 | 22:31:27]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:31:29]: Program closed!
+[22.06.24 | 22:31:41]: Program started!
+[22.06.24 | 22:31:50]: Kunnak hat sich angemeldet!
+[22.06.24 | 22:32:31]: Program started!
+[22.06.24 | 22:32:47]: Anmeldung fehlgeschlagen - User [BoeJiden]!
+[22.06.24 | 22:32:47]: Program closed!
+[22.06.24 | 22:32:52]: Program started!
+[22.06.24 | 22:33:04]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:33:26]: Aufgabe 'Kübra schreiben' wurde von BoeJiden entfernt!
+[22.06.24 | 22:33:26]: Program closed!
+[22.06.24 | 22:38:41]: Program started!
+[22.06.24 | 22:38:51]: BoeJiden hat sich angemeldet!
+[22.06.24 | 22:39:01]: Program closed!
+[22.06.24 | 23:00:35]: Program started!
+[22.06.24 | 23:00:51]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:01:11]: [Kunnak] hat das Passwort von BoeJiden erfolgreich aktualisiert!
+[22.06.24 | 23:01:11]: Program closed!
+[22.06.24 | 23:01:26]: Program started!
+[22.06.24 | 23:01:56]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:01:58]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:01:58]: Program closed!
+[22.06.24 | 23:02:05]: Program started!
+[22.06.24 | 23:02:43]: Program started!
+[22.06.24 | 23:03:03]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:06:02]: Program started!
+[22.06.24 | 23:06:20]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:06:52]: Aufgabe Wirtschaft retten wurde zugewiesen an BoeJiden!
+[22.06.24 | 23:06:52]: [BoeJiden] hat sich die Aufgabe [Die Weltwirtschaft retten mit nem gutem Plan] gegeben!
+[22.06.24 | 23:06:52]: Program closed!
+[22.06.24 | 23:06:59]: Program started!
+[22.06.24 | 23:13:29]: Program started!
+[22.06.24 | 23:13:49]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:13:53]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:13:56]: Program closed!
+[22.06.24 | 23:16:33]: Program started!
+[22.06.24 | 23:16:44]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:16:46]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:16:49]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:16:52]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:28]: Program started!
+[22.06.24 | 23:17:40]: Program started!
+[22.06.24 | 23:17:53]: BoeJiden hat sich angemeldet!
+[22.06.24 | 23:17:55]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:56]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:57]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:57]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:58]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:58]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:59]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:59]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:17:59]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:00]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:00]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:00]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:00]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:01]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:01]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:01]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:01]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:01]: [BoeJiden] hat sich seine Aufgaben angesehen!
+[22.06.24 | 23:18:06]: Program closed!
+[22.06.24 | 23:33:29]: Program started!
+[22.06.24 | 23:33:51]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:34:43]: Aufgabe Zimmer aufräumen wurde zugewiesen an Kunnak!
+[22.06.24 | 23:34:43]: [Kunnak] hat [Kunnak die Aufgabe [Selberklärend] gegeben!
+[22.06.24 | 23:36:19]: Aufgabe Zocken wurde zugewiesen an Kunnak!
+[22.06.24 | 23:36:19]: [Kunnak] hat [Kunnak die Aufgabe [Mal ein Tag die Füße hochlegen und ein bisschen was zocken] gegeben!
+[22.06.24 | 23:36:33]: Program closed!
+[22.06.24 | 23:37:46]: Program started!
+[22.06.24 | 23:37:59]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:38:04]: Program closed!
+[22.06.24 | 23:39:01]: Program started!
+[22.06.24 | 23:39:10]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:39:16]: Program closed!
+[22.06.24 | 23:39:16]: Program closed!
+[22.06.24 | 23:40:05]: Program started!
+[22.06.24 | 23:40:28]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:41:14]: Program started!
+[22.06.24 | 23:41:24]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:43:25]: Program started!
+[22.06.24 | 23:44:21]: Program started!
+[22.06.24 | 23:46:06]: Program started!
+[22.06.24 | 23:46:43]: Program started!
+[22.06.24 | 23:47:01]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:47:09]: Program closed!
+[22.06.24 | 23:47:09]: Program closed!
+[22.06.24 | 23:49:40]: Program started!
+[22.06.24 | 23:49:49]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:50:17]: Aufgabe 'Zimmer aufräumen' wurde von Kunnak entfernt!
+[22.06.24 | 23:50:17]: [Kunnak] hat [Kunnak] die Aufgabe [Zimmer aufräumen] entzogen!
+[22.06.24 | 23:50:22]: Program closed!
+[22.06.24 | 23:50:22]: Program closed!
+[22.06.24 | 23:50:57]: Program started!
+[22.06.24 | 23:51:26]: Kunnak hat sich angemeldet!
+[22.06.24 | 23:51:53]: Aufgabe Schlafen gehen wurde zugewiesen an Kunnak!
+[22.06.24 | 23:51:53]: [Kunnak] hat [Kunnak die Aufgabe [Selbsterklärend] gegeben!
+[22.06.24 | 23:52:11]: [Kunnak] hat [Kunnak] die Aufgabe [] entzogen!
+[22.06.24 | 23:53:10]: Program closed!
+[23.06.24 | 00:05:27]: Program started!
+[23.06.24 | 00:05:38]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:05:46]: Program closed!
+[23.06.24 | 00:05:47]: Program started!
+[23.06.24 | 00:05:58]: BoeJiden hat sich angemeldet!
+[23.06.24 | 00:06:00]: BoeJiden hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:06:30]: Program started!
+[23.06.24 | 00:06:47]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:06:49]: Program closed!
+[23.06.24 | 00:07:27]: Program started!
+[23.06.24 | 00:07:40]: BoeJiden hat sich angemeldet!
+[23.06.24 | 00:07:43]: BoeJiden hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:09:04]: Program started!
+[23.06.24 | 00:09:16]: Anmeldung fehlgeschlagen - User [BoeJiden]!
+[23.06.24 | 00:09:19]: Program started!
+[23.06.24 | 00:09:31]: BoeJiden hat sich angemeldet!
+[23.06.24 | 00:09:33]: BoeJiden hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:09:35]: Program closed!
+[23.06.24 | 00:14:14]: Program started!
+[23.06.24 | 00:14:21]: Program closed!
+[23.06.24 | 00:14:29]: Program started!
+[23.06.24 | 00:14:38]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:14:50]: Kunnak hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:15:37]: Program closed!
+[23.06.24 | 00:21:56]: Program started!
+[23.06.24 | 00:22:07]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:22:12]: Kunnak hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:22:37]: [Kunnak] hat das Passwort von Kunnak erfolgreich aktualisiert!
+[23.06.24 | 00:22:42]: Program closed!
+[23.06.24 | 00:27:58]: Program started!
+[23.06.24 | 00:28:10]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:28:13]: Kunnak hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:28:37]: Aufgabe [Task1] wurde erstellt!
+[23.06.24 | 00:28:40]: Aufgabe Task1 wurde zugewiesen an Kunnak!
+[23.06.24 | 00:28:49]: Kunnak hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:28:54]: Kunnak hat sich seine Aufgaben anzeigen lassen!
+[23.06.24 | 00:28:59]: Aufgabe 'Task1' wurde von Kunnak entfernt!
+[23.06.24 | 00:29:02]: Program closed!
+[23.06.24 | 00:31:31]: Program started!
+[23.06.24 | 00:32:08]: Program started!
+[23.06.24 | 00:32:18]: Kunnak hat sich angemeldet!
+[23.06.24 | 00:32:39]: Aufgabe [Test] wurde erstellt!
+[23.06.24 | 00:32:43]: Aufgabe Test wurde zugewiesen an Kunnak!
+[23.06.24 | 00:32:51]: Aufgabe 'Test' wurde von Kunnak entfernt!
+[23.06.24 | 00:32:55]: Program closed!
+[23.06.24 | 08:59:53]: Program started!
+[23.06.24 | 09:00:01]: Kunnak hat sich angemeldet!
+[23.06.24 | 09:00:23]: Aufgabe 'Schlafen gehen' wurde von Kunnak entfernt!
+[23.06.24 | 09:00:32]: Program started!
+[23.06.24 | 09:00:41]: Kunnak hat sich angemeldet!
+[23.06.24 | 09:00:48]: Program closed!
+[23.06.24 | 10:51:18]: Program started!
+[23.06.24 | 11:00:55]: Program started!
+[23.06.24 | 11:01:22]: User <functions.User object at 0x00000299FC967E60> wurde erstellt!
+[23.06.24 | 11:01:22]: TikeMyson hat sich angemeldet!
+[23.06.24 | 11:01:28]: Program closed!
+[23.06.24 | 12:57:14]: User Karlo wurde erstellt!
+[23.06.24 | 12:59:33]: User Karlo wurde erstellt!

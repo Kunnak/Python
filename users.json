@@ -1,0 +1,43 @@
+[
+    {
+        "username": "Kunnak",
+        "password": "1fed2ed5d5a68f8431fdcd092dea277e14ccbcc119faf686bfdc0c1afd738ba8",
+        "name": "Yannick",
+        "email": "yannicks@live.de",
+        "tasks": [
+            {
+                "task-name": "Zocken",
+                "description": "Mal ein Tag die F\u00fc\u00dfe hochlegen und ein bisschen was zocken",
+                "zeitangabe": "ganzen Tag",
+                "status": "3"
+            },
+            {
+                "task-name": "Wirtschaft retten",
+                "description": "Die Weltwirtschaft retten mit nem gutem Plan",
+                "zeitangabe": "2030",
+                "status": "10"
+            }
+        ]
+    },
+    {
+        "username": "BoeJiden",
+        "password": "6536c4b48d3cf8352d5dde811b9634cacbb2459cc019d768f696bc7ca058a105",
+        "name": "Joe Biden",
+        "email": "j.biden@whitehouse.com",
+        "tasks": [
+            {
+                "task-name": "Wirtschaft retten",
+                "description": "Die Weltwirtschaft retten mit nem gutem Plan",
+                "zeitangabe": "2030",
+                "status": "10"
+            }
+        ]
+    },
+    {
+        "username": "Karlo",
+        "password": "034c0f8ac5ab8ef39e1c25af63b4f8d40e9488ebb5ff03af3c583b4e4db2aa3d",
+        "name": "Karlo",
+        "email": "karlo@karlo.de",
+        "tasks": []
+    }
+]
