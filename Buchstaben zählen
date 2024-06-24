@@ -13,10 +13,8 @@ def process_text_file(file_path):
 
     return char_dict
 
-# Beispielhafte Verwendung der Funktion
 file_path = 'Text.txt'
 char_dict = process_text_file(file_path)
 
-# Ausgabe des Wörterbuchs (optional)
 for char, char_list in char_dict.items():
     print(f"'{char}': {len(char_list)}")
