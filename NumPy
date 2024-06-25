@@ -1,0 +1,21 @@
+import numpy as np
+
+aufgaben_array = np.array(['Kellnern', 'Pizzabacken', 'Bar'])
+mitarbeiter_array = np.array(['Yannick', 'Michele', 'Vanessa'])
+
+buch = {}
+
+for name in mitarbeiter_array:
+    if name not in buch:
+        buch[name] = []
+    if name == 'Yannick':
+        buch[name] = aufgaben_array[2]
+    if name == 'Michele':
+        buch[name] = aufgaben_array[1]
+    if name == 'Vanessa':
+        buch[name] = aufgaben_array[0]
+
+for item in buch.items():
+    print(item)
+
+print('Done')
