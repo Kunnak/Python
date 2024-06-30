@@ -1,0 +1,23 @@
+def get_subnet():
+    x = 2
+    c = 0
+    expos = []
+    while c < 8:
+        y = x
+        x *= 2
+        c += 1
+        expos.append(y)
+    networks = [255 - expo + 1 for expo in expos]
+    hosts = [network - 2 for network in networks]
+    return sorted(networks), hosts
+
+subnetzworks, hosts = get_subnet()
+
+print(subnetzworks)
+print(hosts)
+
+print("\nMögliche subnetzmasken:")
+c = 0
+for i in sorted(subnetzworks):
+    print(f"255.255.255.{i} | {255-subnetzworks[c] - 2} mögliche Hostadressen")
+    c += 1
